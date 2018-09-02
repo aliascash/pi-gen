@@ -64,13 +64,12 @@ rm -rf spectre-rpc-sh-ui/
 # - 'wallet-start' to start daemon
 # - 'wallet-stop' to stop daemon
 # - 'wallet-status' to show daemon status
-on_chroot << EOF
-echo "alias ui='/home/pi/spectrecoin-rpc-sh-ui/spectre_rpc_ui.sh'" >> /home/pi/.bash_aliases
-echo "alias wallet-start='service spectrecoind start'" >> /home/pi/.bash_aliases
-echo "alias wallet-stop='service spectrecoind stop'" >> /home/pi/.bash_aliases
-echo "alias wallet-status='service spectrecoind status'" >> /home/pi/.bash_aliases
-chown pi:pi /home/pi/.bash_aliases
-EOF
+echo "alias ui='/home/pi/spectrecoin-rpc-sh-ui/spectre_rpc_ui.sh'"   > bash_aliases
+echo "alias wallet-start='service spectrecoind start'"              >> bash_aliases
+echo "alias wallet-stop='service spectrecoind stop'"                >> bash_aliases
+echo "alias wallet-status='service spectrecoind status'"            >> bash_aliases
+install -v -o 1000 -g 1000 -m 644 bash_aliases                      "${ROOTFS_DIR}/home/pi/.bash_aliases"
+rm -f bash_aliases
 
 
 
@@ -79,3 +78,12 @@ EOF
 on_chroot << EOF
 dphys-swapfile swapoff && dphys-swapfile uninstall && systemctl disable dphys-swapfile
 EOF
+
+
+
+# ============================================================================
+# Activate ssh,
+# see https://www.raspberrypi.org/documentation/remote-access/ssh/
+touch ssh
+install -v ssh "${ROOTFS_DIR}/boot/"
+rm -f ssh
