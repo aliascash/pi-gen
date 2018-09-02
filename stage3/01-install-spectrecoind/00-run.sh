@@ -29,7 +29,7 @@ git clone https://github.com/spectrecoin/spectrecoin-blockchain-bootstrap.git
 
 install -d -m 755 "${ROOTFS_DIR}/home/pi/.spectrecoin/txleveldb/"
 
-install -v -m 600 spectrecoin-blockchain-bootstrap/txleveldb/*  "${ROOTFS_DIR}/home/pi/pi/.spectrecoin/txleveldb/"
-install -v -m 600 spectrecoin-blockchain-bootstrap/blk0001.dat  "${ROOTFS_DIR}/home/pi/pi/.spectrecoin/"
+install -v -m 600 spectrecoin-blockchain-bootstrap/txleveldb/*  "${ROOTFS_DIR}/home/pi/.spectrecoin/txleveldb/"
+install -v -m 600 spectrecoin-blockchain-bootstrap/blk0001.dat  "${ROOTFS_DIR}/home/pi/.spectrecoin/"
 
 rm -rf spectrecoin-blockchain-bootstrap
