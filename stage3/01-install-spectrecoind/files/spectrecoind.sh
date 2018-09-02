@@ -17,10 +17,10 @@ PATH=/sbin:/usr/sbin:/bin:/usr/bin
 DESC="Spectrecoin Daemon"
 NAME=spectrecoind
 DAEMON=/usr/bin/${NAME}
-PIDFILE=/var/run/${NAME}.pid
+PIDFILE=/var/run/${NAME}/${NAME}.pid
 SCRIPTNAME=/etc/init.d/${NAME}
 CHUID=pi:pi
-DAEMON_ARGS="-daemon"
+DAEMON_ARGS="-daemon -pid=${PIDFILE}"
 
 # Exit if the package is not installed
 [ -x "$DAEMON" ] || exit 0
