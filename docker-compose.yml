@@ -5,6 +5,6 @@ services:
     restart: unless-stopped
     image: sameersbn/apt-cacher-ng:latest
     ports:
-    - "3142:3142"
+    - "3143:3142"
     volumes:
     - ./apt-cacher-ng:/var/cache/apt-cacher-ng
