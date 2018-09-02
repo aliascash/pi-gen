@@ -1,4 +1,6 @@
+bc
 ca-certificates
+dialog
 mc
 libboost-chrono1.62.0
 libboost-filesystem1.62.0
