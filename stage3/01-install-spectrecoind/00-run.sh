@@ -12,6 +12,8 @@ install -v -o 1000 -g 1000 -m 744 usr/local/bin/spectrecoind    "${ROOTFS_DIR}/u
 rm -f /tmp/Spectrecoin-${SPECTRECOIN_VERSION}-RaspberryPi.tgz
 rm -rf usr/
 
+
+
 # ============================================================================
 # Install Spectrecoin init script
 install -m 755 files/spectrecoind.sh	"${ROOTFS_DIR}/etc/init.d/spectrecoind"
@@ -19,6 +21,7 @@ install -m 644 files/spectrecoin.conf	"${ROOTFS_DIR}/usr/lib/tmpfiles.d/"
 on_chroot << EOF
 systemctl enable spectrecoind
 EOF
+
 
 
 # ============================================================================
@@ -52,6 +55,22 @@ install -v -o 1000 -g 1000 -m 755 spectre-rpc-sh-ui/spectre_rpc_ui.sh       "${R
 install -v -o 1000 -g 1000 -m 644 spectre-rpc-sh-ui/sample_config_daemon/spectrecoin.conf  "${ROOTFS_DIR}/home/pi/.spectrecoin/"
 
 rm -rf spectre-rpc-sh-ui/
+
+
+
+# ============================================================================
+# Define aliases:
+# - 'ui' for the Spectrecoin-RPC-UI
+# - 'wallet-start' to start daemon
+# - 'wallet-stop' to stop daemon
+# - 'wallet-status' to show daemon status
+on_chroot << EOF
+echo "alias ui='/home/pi/spectrecoin-rpc-sh-ui/spectre_rpc_ui.sh'" >> /home/pi/.bash_aliases
+echo "alias wallet-start='service spectrecoind start'" >> /home/pi/.bash_aliases
+echo "alias wallet-stop='service spectrecoind stop'" >> /home/pi/.bash_aliases
+echo "alias wallet-status='service spectrecoind status'" >> /home/pi/.bash_aliases
+chown pi:pi /home/pi/.bash_aliases
+EOF
 
 
 
