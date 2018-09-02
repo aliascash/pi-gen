@@ -33,7 +33,7 @@ install -v -o 1000 -g 1000 -m 644 spectre-rpc-sh-ui/script.conf             "${R
 install -v -o 1000 -g 1000 -m 755 spectre-rpc-sh-ui/spectre_rpc_ui.sh       "${ROOTFS_DIR}/home/pi/spectrecoin-rpc-sh-ui/spectre_rpc_ui.sh"
 
 # Use config from RPC-UI also on wallet
-install -v -o 1000 -g 1000 -m 644 spectre-rpc-sh-ui/sample_config_deamon/spectrecoin.conf  "${ROOTFS_DIR}/home/pi/.spectrecoin/"
+install -v -o 1000 -g 1000 -m 644 spectre-rpc-sh-ui/sample_config_daemon/spectrecoin.conf  "${ROOTFS_DIR}/home/pi/.spectrecoin/"
 
 
 rm -rf spectre-rpc-sh-ui/
