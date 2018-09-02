@@ -12,7 +12,7 @@ RUN apt-get -y update && \
 RUN echo 'deb http://http.debian.net/debian stretch-backports main' > /etc/apt/sources.list.d/stretch-backports-main.list \
  && apt-get -y update \
  && apt-get -y install \
-        git-lfs \
+        git-lfs
 
 RUN git lfs install
 
