@@ -7,7 +7,7 @@ RUN apt-get -y update && \
         git vim parted \
         quilt realpath qemu-user-static debootstrap zerofree pxz zip dosfstools \
         bsdtar libcap2-bin rsync grep udev xz-utils curl xxd file \
-        git-lfs
+        git-lfs \
     && rm -rf /var/lib/apt/lists/*
 
 RUN git lfs install
