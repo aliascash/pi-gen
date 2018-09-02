@@ -25,7 +25,7 @@ install -v -m 744 spectre-rpc-sh-ui/spectre_rpc_ui.sh       "${ROOTFS_DIR}/home/
 rm -rf spectre-rpc-sh-ui/
 
 # Bootstrap blockchain
-git clone git@github.com:spectrecoin/spectrecoin-blockchain-bootstrap.git
+git clone https://github.com/spectrecoin/spectrecoin-blockchain-bootstrap.git
 
 install -d -m 755 "${ROOTFS_DIR}/home/pi/.spectrecoin/txleveldb/"
 
