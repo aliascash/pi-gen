@@ -1,7 +1,26 @@
 # pi-gen
 
-_Tool used to create the raspberrypi.org Raspbian images_
+_Tool used to create the raspberrypi.org Raspbian images, containing [Spectrecoin](https://spectreproject.io/) daemon_
 
+## Changes and additions for Spectrecoin
+
+On stage 2 ssh will be enabled by default.
+
+On stage 3 the Spectrecoin image will be created. For this the following steps will be performed:
+
+* Install required dependencies
+* Install Spectrecoin binaries
+* Install init script
+* Bootstrap blockchain and transaction log
+* Install RPC Shell UI
+* Define some aliases
+  * **ui** to start the Shell UI
+  * **wallet-start** to start the daemon
+  * **wallet-stop** to stop the daemon
+  * **wallet-status** to show daemon status
+
+
+**Default readme content below here**
 
 ## Dependencies
 
