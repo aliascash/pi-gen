@@ -20,6 +20,6 @@ install -v -m 644 spectre-rpc-sh-ui/include/*               "${ROOTFS_DIR}/home/
 install -v -m 644 spectre-rpc-sh-ui/sample_config_daemon/*  "${ROOTFS_DIR}/home/pi/spectrecoin-rpc-sh-ui/sample_config_daemon"
 install -v -m 644 spectre-rpc-sh-ui/readme.txt              "${ROOTFS_DIR}/home/pi/spectrecoin-rpc-sh-ui/readme.txt"
 install -v -m 644 spectre-rpc-sh-ui/script.conf             "${ROOTFS_DIR}/home/pi/spectrecoin-rpc-sh-ui/script.conf"
-install -v -m 744 spectre-rpc-sh-ui/spectre_rps_ui.sh       "${ROOTFS_DIR}/home/pi/spectrecoin-rpc-sh-ui/spectre_rps_ui.sh"
+install -v -m 744 spectre-rpc-sh-ui/spectre_rpc_ui.sh       "${ROOTFS_DIR}/home/pi/spectrecoin-rpc-sh-ui/spectre_rpc_ui.sh"
 
 rm -rf spectre-rpc-sh-ui/
