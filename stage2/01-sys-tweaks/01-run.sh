@@ -15,7 +15,7 @@ on_chroot << EOF
 systemctl disable hwclock.sh
 systemctl disable nfs-common
 systemctl disable rpcbind
-systemctl disable ssh
+systemctl enable ssh
 systemctl enable regenerate_ssh_host_keys
 EOF
 
