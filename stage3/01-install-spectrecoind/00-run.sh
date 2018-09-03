@@ -1,15 +1,17 @@
 #!/bin/bash -e
-SPECTRECOIN_VERSION=v2.0.6
+SPECTRECOIN_VERSION=v2.0.7
+#RASPI_ARCHIVE_VERSION=${SPECTRECOIN_VERSION}
+RASPI_ARCHIVE_VERSION=v2.0.6
 
 # ============================================================================
 # Install Spectrecoin binaries
-wget https://github.com/spectrecoin/spectre/releases/download/${SPECTRECOIN_VERSION}/Spectrecoin-${SPECTRECOIN_VERSION}-RaspberryPi.tgz
-tar xzf Spectrecoin-${SPECTRECOIN_VERSION}-RaspberryPi.tgz
+wget https://github.com/spectrecoin/spectre/releases/download/${SPECTRECOIN_VERSION}/Spectrecoin-${RASPI_ARCHIVE_VERSION}-RaspberryPi.tgz
+tar xzf Spectrecoin-${RASPI_ARCHIVE_VERSION}-RaspberryPi.tgz
 
 #install -v -o 1000 -g 1000 -m 744 usr/local/bin/spectrecoin     "${ROOTFS_DIR}/usr/bin/"
 install -v -o 1000 -g 1000 -m 744 usr/local/bin/spectrecoind    "${ROOTFS_DIR}/usr/bin/"
 
-rm -f /tmp/Spectrecoin-${SPECTRECOIN_VERSION}-RaspberryPi.tgz
+rm -f /tmp/Spectrecoin-${RASPI_ARCHIVE_VERSION}-RaspberryPi.tgz
 rm -rf usr/
 
 
