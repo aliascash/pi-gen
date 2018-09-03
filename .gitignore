@@ -7,3 +7,5 @@ SKIP_IMAGES
 .pc
 *-pc
 apt-cacher-ng/
+.idea/
+*.iml
