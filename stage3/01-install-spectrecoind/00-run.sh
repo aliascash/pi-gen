@@ -1,7 +1,7 @@
 #!/bin/bash -e
 SPECTRECOIN_VERSION=v2.0.7
 #RASPI_ARCHIVE_VERSION=${SPECTRECOIN_VERSION}
-RASPI_ARCHIVE_VERSION=v2.0.6
+RASPI_ARCHIVE_VERSION=v2.0.7
 
 # ============================================================================
 # Install Spectrecoin binaries
