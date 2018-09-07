@@ -49,7 +49,7 @@ install -d -o 1000 -g 1000                                                  "${R
 install -d -o 1000 -g 1000                                                  "${ROOTFS_DIR}/home/pi/spectrecoin-rpc-sh-ui/sample_config_daemon"
 install -v -o 1000 -g 1000 -m 644 spectre-rpc-sh-ui/include/*               "${ROOTFS_DIR}/home/pi/spectrecoin-rpc-sh-ui/include/"
 install -v -o 1000 -g 1000 -m 644 spectre-rpc-sh-ui/sample_config_daemon/*  "${ROOTFS_DIR}/home/pi/spectrecoin-rpc-sh-ui/sample_config_daemon"
-install -v -o 1000 -g 1000 -m 644 spectre-rpc-sh-ui/readme.txt              "${ROOTFS_DIR}/home/pi/spectrecoin-rpc-sh-ui/readme.txt"
+install -v -o 1000 -g 1000 -m 644 spectre-rpc-sh-ui/README.md               "${ROOTFS_DIR}/home/pi/spectrecoin-rpc-sh-ui/README.md"
 install -v -o 1000 -g 1000 -m 644 spectre-rpc-sh-ui/script.conf             "${ROOTFS_DIR}/home/pi/spectrecoin-rpc-sh-ui/script.conf"
 install -v -o 1000 -g 1000 -m 755 spectre-rpc-sh-ui/spectrecoin_rpc_ui.sh   "${ROOTFS_DIR}/home/pi/spectrecoin-rpc-sh-ui/spectrecoin_rpc_ui.sh"
 
