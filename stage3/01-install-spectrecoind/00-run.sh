@@ -2,6 +2,7 @@
 SPECTRECOIN_VERSION=v2.0.7
 #RASPI_ARCHIVE_VERSION=${SPECTRECOIN_VERSION}
 RASPI_ARCHIVE_VERSION=v2.0.7
+DIALOG_ARCHIVE_VERSION=1.3-20180621
 
 # ============================================================================
 # Install Spectrecoin binaries
@@ -37,6 +38,29 @@ install -v -o 1000 -g 1000 -m 600 spectrecoin-blockchain-bootstrap/data/txleveld
 install -v -o 1000 -g 1000 -m 600 spectrecoin-blockchain-bootstrap/data/blk0001.dat  "${ROOTFS_DIR}/home/pi/.spectrecoin/"
 
 rm -rf spectrecoin-blockchain-bootstrap
+
+
+
+# ============================================================================
+# Install prebuild dialog binaries
+# Necessary as long as the official dialog package is outdated
+wget https://github.com/spectrecoin/spectre-rpc-sh-ui/releases/download/latest/Dialog-${DIALOG_ARCHIVE_VERSION}.tgz
+tar xzf Dialog-${DIALOG_ARCHIVE_VERSION}.tgz
+
+install -v -o 1000 -g 1000 -m 755 usr/local/bin/dialog                "${ROOTFS_DIR}/usr/local/bin/"
+install -v -o 1000 -g 1000 -m 644 usr/local/lib/libdialog.a           "${ROOTFS_DIR}/usr/local/lib/"
+install -v -o 1000 -g 1000 -m 644 usr/local/share/man/man1/dialog.1   "${ROOTFS_DIR}/usr/local/share/man/man1/"
+
+rm -f Dialog-${DIALOG_ARCHIVE_VERSION}.tgz
+rm -rf usr/
+
+on_chroot << EOF
+mv /usr/bin/dialog /usr/bin/dialog_original
+ln -s /usr/local/bin/dialog /usr/bin/dialog
+mv /usr/local/share/man/man1/dialog.1.gz /usr/local/share/man/man1/dialog.1.gz.back
+mv /usr/local/share/man/man3/dialog.3.gz /usr/local/share/man/man3/dialog.3.gz.back
+ln -s /usr/local/share/man/man1/dialog.1 /usr/local/share/man/man1/dialog.1
+EOF
 
 
 
