@@ -49,17 +49,15 @@ tar xzf Dialog-${DIALOG_ARCHIVE_VERSION}.tgz
 
 install -v -o 1000 -g 1000 -m 755 usr/local/bin/dialog                "${ROOTFS_DIR}/usr/local/bin/"
 install -v -o 1000 -g 1000 -m 644 usr/local/lib/libdialog.a           "${ROOTFS_DIR}/usr/local/lib/"
+install -d -o 1000 -g 1000 -m 755                                     "${ROOTFS_DIR}/usr/local/share/man/man1/"
 install -v -o 1000 -g 1000 -m 644 usr/local/share/man/man1/dialog.1   "${ROOTFS_DIR}/usr/local/share/man/man1/"
 
 rm -f Dialog-${DIALOG_ARCHIVE_VERSION}.tgz
 rm -rf usr/
 
 on_chroot << EOF
-mv /usr/bin/dialog /usr/bin/dialog_original
-ln -s /usr/local/bin/dialog /usr/bin/dialog
-mv /usr/local/share/man/man1/dialog.1.gz /usr/local/share/man/man1/dialog.1.gz.back
-mv /usr/local/share/man/man3/dialog.3.gz /usr/local/share/man/man3/dialog.3.gz.back
-ln -s /usr/local/share/man/man1/dialog.1 /usr/local/share/man/man1/dialog.1
+ln -s /usr/local/bin/dialog              /usr/bin/dialog
+ln -s /usr/local/share/man/man1/dialog.1 /usr/share/man/man1/dialog.1
 EOF
 
 
@@ -74,8 +72,8 @@ install -d -o 1000 -g 1000                                                  "${R
 install -v -o 1000 -g 1000 -m 644 spectre-rpc-sh-ui/include/*               "${ROOTFS_DIR}/home/pi/spectrecoin-rpc-sh-ui/include/"
 install -v -o 1000 -g 1000 -m 644 spectre-rpc-sh-ui/sample_config_daemon/*  "${ROOTFS_DIR}/home/pi/spectrecoin-rpc-sh-ui/sample_config_daemon"
 install -v -o 1000 -g 1000 -m 644 spectre-rpc-sh-ui/README.md               "${ROOTFS_DIR}/home/pi/spectrecoin-rpc-sh-ui/README.md"
-install -v -o 1000 -g 1000 -m 644 spectre-rpc-sh-ui/script.conf             "${ROOTFS_DIR}/home/pi/spectrecoin-rpc-sh-ui/script.conf"
 install -v -o 1000 -g 1000 -m 755 spectre-rpc-sh-ui/spectrecoin_rpc_ui.sh   "${ROOTFS_DIR}/home/pi/spectrecoin-rpc-sh-ui/spectrecoin_rpc_ui.sh"
+install -v -o 1000 -g 1000 -m 644 spectre-rpc-sh-ui/VERSION                 "${ROOTFS_DIR}/home/pi/spectrecoin-rpc-sh-ui/VERSION"
 
 # Use config from RPC-UI also on wallet
 install -v -o 1000 -g 1000 -m 644 spectre-rpc-sh-ui/sample_config_daemon/spectrecoin.conf  "${ROOTFS_DIR}/home/pi/.spectrecoin/"
