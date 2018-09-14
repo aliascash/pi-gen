@@ -1,6 +1,5 @@
 bc
 ca-certificates
-dialog
 mc
 libboost-chrono1.62.0
 libboost-filesystem1.62.0
@@ -10,3 +9,11 @@ libevent-2.0-5
 libtool
 libseccomp2
 wget
+
+# Latest and greatest version of 'dialog' is compiled on corresponding builder image,
+# So install dialog dependencies manually as long as the real package is not up2date
+# See https://packages.debian.org/stretch/dialog
+debianutils
+libc6
+libncursesw5
+libtinfo5
