@@ -3,16 +3,17 @@ SPECTRECOIN_VERSION=v2.0.7
 #RASPI_ARCHIVE_VERSION=${SPECTRECOIN_VERSION}
 RASPI_ARCHIVE_VERSION=v2.0.7
 DIALOG_ARCHIVE_VERSION=1.3-20180621
+BLOCKCHAIN_ARCHIVE_VERSION=2018-09-28
 
 # ============================================================================
 # Install Spectrecoin binaries
-wget https://github.com/spectrecoin/spectre/releases/download/${SPECTRECOIN_VERSION}/Spectrecoin-${RASPI_ARCHIVE_VERSION}-RaspberryPi.tgz
-tar xzf Spectrecoin-${RASPI_ARCHIVE_VERSION}-RaspberryPi.tgz
+wget https://github.com/spectrecoin/spectre/releases/download/${SPECTRECOIN_VERSION}/Spectrecoin-${RASPI_ARCHIVE_VERSION}-RaspberryPi.tgz -O Spectrecoin-RaspberryPi.tgz
+tar xzf Spectrecoin-RaspberryPi.tgz
 
 #install -v -o 1000 -g 1000 -m 744 usr/local/bin/spectrecoin     "${ROOTFS_DIR}/usr/bin/"
 install -v -o 1000 -g 1000 -m 744 usr/local/bin/spectrecoind    "${ROOTFS_DIR}/usr/bin/"
 
-rm -f /tmp/Spectrecoin-${RASPI_ARCHIVE_VERSION}-RaspberryPi.tgz
+rm -f /tmp/Spectrecoin-RaspberryPi.tgz
 rm -rf usr/
 
 
@@ -29,30 +30,34 @@ EOF
 
 # ============================================================================
 # Bootstrap blockchain
-git clone https://github.com/spectrecoin/spectrecoin-blockchain-bootstrap.git
+#wget https://github.com/spectrecoin/spectre/releases/download/${SPECTRECOIN_VERSION}/Spectrecoin-Blockchain-${BLOCKCHAIN_ARCHIVE_VERSION}.zip -O Spectrecoin-Blockchain.zip
+wget https://github.com/spectrecoin/spectrecoin-blockchain-bootstrap/releases/download/latest/Spectrecoin-Blockchain-${BLOCKCHAIN_ARCHIVE_VERSION}.zip -O Spectrecoin-Blockchain.zip
+
+mkdir Spectrecoin-Blockchain
+unzip Spectrecoin-Blockchain.zip -d Spectrecoin-Blockchain/
 
 install -d -o 1000 -g 1000 -m 755 "${ROOTFS_DIR}/home/pi/.spectrecoin/"
 install -d -o 1000 -g 1000 -m 755 "${ROOTFS_DIR}/home/pi/.spectrecoin/txleveldb/"
 
-install -v -o 1000 -g 1000 -m 600 spectrecoin-blockchain-bootstrap/data/txleveldb/*  "${ROOTFS_DIR}/home/pi/.spectrecoin/txleveldb/"
-install -v -o 1000 -g 1000 -m 600 spectrecoin-blockchain-bootstrap/data/blk0001.dat  "${ROOTFS_DIR}/home/pi/.spectrecoin/"
+install -v -o 1000 -g 1000 -m 600 Spectrecoin-Blockchain/data/txleveldb/*  "${ROOTFS_DIR}/home/pi/.spectrecoin/txleveldb/"
+install -v -o 1000 -g 1000 -m 600 Spectrecoin-Blockchain/data/blk0001.dat  "${ROOTFS_DIR}/home/pi/.spectrecoin/"
 
-rm -rf spectrecoin-blockchain-bootstrap
+rm -rf Spectrecoin-Blockchain*
 
 
 
 # ============================================================================
 # Install prebuild dialog binaries
 # Necessary as long as the official dialog package is outdated
-wget https://github.com/spectrecoin/spectre-rpc-sh-ui/releases/download/latest/Dialog-${DIALOG_ARCHIVE_VERSION}.tgz
-tar xzf Dialog-${DIALOG_ARCHIVE_VERSION}.tgz
+wget https://github.com/spectrecoin/spectre-rpc-sh-ui/releases/download/latest/Dialog-${DIALOG_ARCHIVE_VERSION}.tgz -O Dialog.tgz
+tar xzf Dialog.tgz
 
 install -v -o 1000 -g 1000 -m 755 usr/local/bin/dialog                "${ROOTFS_DIR}/usr/local/bin/"
 install -v -o 1000 -g 1000 -m 644 usr/local/lib/libdialog.a           "${ROOTFS_DIR}/usr/local/lib/"
 install -d -o 1000 -g 1000 -m 755                                     "${ROOTFS_DIR}/usr/local/share/man/man1/"
 install -v -o 1000 -g 1000 -m 644 usr/local/share/man/man1/dialog.1   "${ROOTFS_DIR}/usr/local/share/man/man1/"
 
-rm -f Dialog-${DIALOG_ARCHIVE_VERSION}.tgz
+rm -f Dialog.tgz
 rm -rf usr/
 
 on_chroot << EOF
@@ -64,7 +69,7 @@ EOF
 
 # ============================================================================
 # Install Spectrecoin-RPC-UI
-git clone https://github.com/HLXEasy/spectre-rpc-sh-ui.git
+git clone https://github.com/spectrecoin/spectre-rpc-sh-ui.git
 
 install -d -o 1000 -g 1000                                                  "${ROOTFS_DIR}/home/pi/spectrecoin-rpc-sh-ui"
 install -d -o 1000 -g 1000                                                  "${ROOTFS_DIR}/home/pi/spectrecoin-rpc-sh-ui/include"
