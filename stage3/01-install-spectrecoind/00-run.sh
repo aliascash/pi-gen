@@ -39,8 +39,8 @@ unzip Spectrecoin-Blockchain.zip -d Spectrecoin-Blockchain/
 install -d -o 1000 -g 1000 -m 755 "${ROOTFS_DIR}/home/pi/.spectrecoin/"
 install -d -o 1000 -g 1000 -m 755 "${ROOTFS_DIR}/home/pi/.spectrecoin/txleveldb/"
 
-install -v -o 1000 -g 1000 -m 600 Spectrecoin-Blockchain/data/txleveldb/*  "${ROOTFS_DIR}/home/pi/.spectrecoin/txleveldb/"
-install -v -o 1000 -g 1000 -m 600 Spectrecoin-Blockchain/data/blk0001.dat  "${ROOTFS_DIR}/home/pi/.spectrecoin/"
+install -v -o 1000 -g 1000 -m 600 Spectrecoin-Blockchain/txleveldb/*  "${ROOTFS_DIR}/home/pi/.spectrecoin/txleveldb/"
+install -v -o 1000 -g 1000 -m 600 Spectrecoin-Blockchain/blk0001.dat  "${ROOTFS_DIR}/home/pi/.spectrecoin/"
 
 rm -rf Spectrecoin-Blockchain*
 
