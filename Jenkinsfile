@@ -11,8 +11,10 @@ pipeline {
         // In case another branch beside master or develop should be deployed, enter it here
         BRANCH_TO_DEPLOY = 'xyz'
         GITHUB_TOKEN = credentials('cdc81429-53c7-4521-81e9-83a7992bca76')
-        SPECTRECOIN_RELEASE = "2.1.1"
         DISCORD_WEBHOOK = credentials('991ce248-5da9-4068-9aea-8a6c2c388a19')
+    }
+    parameters {
+        string defaultValue: 'latest', description: 'From which version should the image be created?', name: 'SPECTRECOIN_RELEASE', trim: false
     }
     stages {
         stage('Notification') {
@@ -47,9 +49,9 @@ pipeline {
                             "github-release upload \\\n" +
                             "    --user spectrecoin \\\n" +
                             "    --repo spectre \\\n" +
-                            "    --tag latest \\\n" +
-                            "    --name \"Spectrecoin-v2.0.7-2018-09-30-RaspberryPi-RaspbianLight.zip\" \\\n" +
-                            "    --file /filesToUpload/image_2018-09-30-Spectrecoin-lite.zip \\\n" +
+                            "    --tag ${SPECTRECOIN_RELEASE} \\\n" +
+                            "    --name \"Spectrecoin-${SPECTRECOIN_RELEASE}-RaspberryPi-RaspbianLight.zip\" \\\n" +
+                            "    --file /filesToUpload/image_$(date +%F)-Spectrecoin-lite.zip \\\n" +
                             "    --replace"
                 }
             }
