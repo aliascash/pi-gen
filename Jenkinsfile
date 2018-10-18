@@ -15,6 +15,7 @@ pipeline {
     }
     parameters {
         string defaultValue: 'latest', description: 'From which version should the image be created?', name: 'SPECTRECOIN_RELEASE', trim: false
+        string defaultValue: '2018-10-18', description: 'Current date in ISO format. Just a workaround for now, will be removed later.', name: 'CURRENT_DATE', trim: false
     }
     stages {
         stage('Notification') {
@@ -51,7 +52,7 @@ pipeline {
                             "    --repo spectre \\\n" +
                             "    --tag ${SPECTRECOIN_RELEASE} \\\n" +
                             "    --name \"Spectrecoin-${SPECTRECOIN_RELEASE}-RaspberryPi-RaspbianLight.zip\" \\\n" +
-                            "    --file /filesToUpload/image_$(date +%F)-Spectrecoin-lite.zip \\\n" +
+                            "    --file /filesToUpload/image_${CURRENT_DATE}-Spectrecoin-lite.zip \\\n" +
                             "    --replace"
                 }
             }
