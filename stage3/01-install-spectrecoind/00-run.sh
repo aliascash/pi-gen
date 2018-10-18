@@ -61,6 +61,15 @@ rm -f Dialog.tgz
 rm -rf usr/
 
 on_chroot << EOF
+# Handle possible existing dialog
+if [ -e /usr/bin/dialog ] ; then
+    mv /usr/bin/dialog /usr/bin/dialog_
+fi
+if [ -e /usr/share/man/man1/dialog.1 ] ; then
+    mv /usr/share/man/man1/dialog.1 /usr/share/man/man1/dialog.1_
+fi
+
+# Create links to new binary
 ln -s /usr/local/bin/dialog              /usr/bin/dialog
 ln -s /usr/local/share/man/man1/dialog.1 /usr/share/man/man1/dialog.1
 EOF
