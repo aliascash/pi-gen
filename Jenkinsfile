@@ -1,7 +1,9 @@
 #!groovy
 
 pipeline {
-    agent any
+    agent {
+        label "docker"
+    }
     options {
         timestamps()
         timeout(time: 3, unit: 'HOURS')
@@ -15,7 +17,6 @@ pipeline {
     }
     parameters {
         string defaultValue: 'latest', description: 'From which version should the image be created?', name: 'SPECTRECOIN_RELEASE', trim: false
-        string defaultValue: '2018-10-18', description: 'Current date in ISO format. Just a workaround for now, will be removed later.', name: 'CURRENT_DATE', trim: false
     }
     stages {
         stage('Notification') {
@@ -35,6 +36,7 @@ pipeline {
         stage('Build image') {
             steps {
                 script {
+                    sh "echo IMG_NAME=Spectrecoin > config"
                     sh "./build-docker.sh"
                 }
             }
@@ -42,6 +44,10 @@ pipeline {
         stage('Deploy image') {
             steps {
                 script {
+                    def CURRENT_DATE = sh(
+                            script: "date +%Y-%m-%d",
+                            returnStdout: true
+                    )
                     sh "docker run \\\n" +
                             "--rm \\\n" +
                             "-it \\\n" +
