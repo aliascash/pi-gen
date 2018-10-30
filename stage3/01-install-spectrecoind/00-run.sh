@@ -1,13 +1,17 @@
 #!/bin/bash -e
-SPECTRECOIN_VERSION=2.2.0
-RASPI_ARCHIVE_VERSION=${SPECTRECOIN_VERSION}
+if [ -z "${SPECTRECOIN_RELEASE}" ] ; then
+    SPECTRECOIN_RELEASE=2.2.0
+fi
+if [ -z "${BLOCKCHAIN_ARCHIVE_VERSION}" ] ; then
+    BLOCKCHAIN_ARCHIVE_VERSION=2018-10-16
+fi
+RASPI_ARCHIVE_VERSION=${SPECTRECOIN_RELEASE}
 #RASPI_ARCHIVE_VERSION=2.1.0
 DIALOG_ARCHIVE_VERSION=1.3-20180621
-BLOCKCHAIN_ARCHIVE_VERSION=2018-10-16
 
 # ============================================================================
 # Install Spectrecoin binaries
-wget https://github.com/spectrecoin/spectre/releases/download/${SPECTRECOIN_VERSION}/Spectrecoin-${RASPI_ARCHIVE_VERSION}-RaspberryPi.tgz -O Spectrecoin-RaspberryPi.tgz
+wget https://github.com/spectrecoin/spectre/releases/download/${SPECTRECOIN_RELEASE}/Spectrecoin-${RASPI_ARCHIVE_VERSION}-RaspberryPi.tgz -O Spectrecoin-RaspberryPi.tgz
 tar xzf Spectrecoin-RaspberryPi.tgz
 
 #install -v -o 1000 -g 1000 -m 744 usr/local/bin/spectrecoin     "${ROOTFS_DIR}/usr/bin/"
@@ -30,7 +34,7 @@ EOF
 
 # ============================================================================
 # Bootstrap blockchain
-#wget https://github.com/spectrecoin/spectre/releases/download/${SPECTRECOIN_VERSION}/Spectrecoin-Blockchain-${BLOCKCHAIN_ARCHIVE_VERSION}.zip -O Spectrecoin-Blockchain.zip
+#wget https://github.com/spectrecoin/spectre/releases/download/${SPECTRECOIN_RELEASE}/Spectrecoin-Blockchain-${BLOCKCHAIN_ARCHIVE_VERSION}.zip -O Spectrecoin-Blockchain.zip
 wget https://github.com/spectrecoin/spectrecoin-blockchain-bootstrap/releases/download/latest/Spectrecoin-Blockchain-${BLOCKCHAIN_ARCHIVE_VERSION}.zip -O Spectrecoin-Blockchain.zip
 
 mkdir Spectrecoin-Blockchain
