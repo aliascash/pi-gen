@@ -43,8 +43,19 @@ unzip Spectrecoin-Blockchain.zip -d Spectrecoin-Blockchain/
 install -d -o 1000 -g 1000 -m 755 "${ROOTFS_DIR}/home/pi/.spectrecoin/"
 install -d -o 1000 -g 1000 -m 755 "${ROOTFS_DIR}/home/pi/.spectrecoin/txleveldb/"
 
-install -v -o 1000 -g 1000 -m 600 Spectrecoin-Blockchain/txleveldb/*  "${ROOTFS_DIR}/home/pi/.spectrecoin/txleveldb/"
-install -v -o 1000 -g 1000 -m 600 Spectrecoin-Blockchain/blk0001.dat  "${ROOTFS_DIR}/home/pi/.spectrecoin/"
+install -v -o 1000 -g 1000 -m 600 Spectrecoin-Blockchain/txleveldb/*0.ldb      "${ROOTFS_DIR}/home/pi/.spectrecoin/txleveldb/"
+install -v -o 1000 -g 1000 -m 600 Spectrecoin-Blockchain/txleveldb/*1.ldb      "${ROOTFS_DIR}/home/pi/.spectrecoin/txleveldb/"
+install -v -o 1000 -g 1000 -m 600 Spectrecoin-Blockchain/txleveldb/*2.ldb      "${ROOTFS_DIR}/home/pi/.spectrecoin/txleveldb/"
+install -v -o 1000 -g 1000 -m 600 Spectrecoin-Blockchain/txleveldb/*3.ldb      "${ROOTFS_DIR}/home/pi/.spectrecoin/txleveldb/"
+install -v -o 1000 -g 1000 -m 600 Spectrecoin-Blockchain/txleveldb/*4.ldb      "${ROOTFS_DIR}/home/pi/.spectrecoin/txleveldb/"
+install -v -o 1000 -g 1000 -m 600 Spectrecoin-Blockchain/txleveldb/*5.ldb      "${ROOTFS_DIR}/home/pi/.spectrecoin/txleveldb/"
+install -v -o 1000 -g 1000 -m 600 Spectrecoin-Blockchain/txleveldb/*6.ldb      "${ROOTFS_DIR}/home/pi/.spectrecoin/txleveldb/"
+install -v -o 1000 -g 1000 -m 600 Spectrecoin-Blockchain/txleveldb/*7.ldb      "${ROOTFS_DIR}/home/pi/.spectrecoin/txleveldb/"
+install -v -o 1000 -g 1000 -m 600 Spectrecoin-Blockchain/txleveldb/*8.ldb      "${ROOTFS_DIR}/home/pi/.spectrecoin/txleveldb/"
+install -v -o 1000 -g 1000 -m 600 Spectrecoin-Blockchain/txleveldb/*9.ldb      "${ROOTFS_DIR}/home/pi/.spectrecoin/txleveldb/"
+install -v -o 1000 -g 1000 -m 600 Spectrecoin-Blockchain/txleveldb/CURRENT     "${ROOTFS_DIR}/home/pi/.spectrecoin/txleveldb/"
+install -v -o 1000 -g 1000 -m 600 Spectrecoin-Blockchain/txleveldb/MANIFEST*   "${ROOTFS_DIR}/home/pi/.spectrecoin/txleveldb/"
+install -v -o 1000 -g 1000 -m 600 Spectrecoin-Blockchain/blk0001.dat           "${ROOTFS_DIR}/home/pi/.spectrecoin/"
 
 rm -rf Spectrecoin-Blockchain*
 
