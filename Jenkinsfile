@@ -40,6 +40,7 @@ pipeline {
                     sh "echo IMG_NAME=Spectrecoin > config\n" +
                        "echo SPECTRECOIN_RELEASE=${SPECTRECOIN_RELEASE} >> config\n" +
                        "echo BLOCKCHAIN_ARCHIVE_VERSION=${BLOCKCHAIN_ARCHIVE_VERSION} >> config"
+                    sh "touch ./stage4/SKIP ./stage4/SKIP_IMAGES ./stage5/SKIP ./stage5/SKIP_IMAGES"
                     sh "./build-docker.sh"
                 }
             }
