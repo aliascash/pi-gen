@@ -52,7 +52,7 @@ pipeline {
             steps {
                 script {
                     def CURRENT_DATE = sh(
-                            script: "date +%Y-%m-%d",
+                            script: "printf \$(date +%Y-%m-%d)",
                             returnStdout: true
                     )
                     sh "docker run \\\n" +
