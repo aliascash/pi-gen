@@ -2,7 +2,7 @@
 
 pipeline {
     agent {
-        label "big-docker"
+        label "docker"
     }
     options {
         timestamps()
