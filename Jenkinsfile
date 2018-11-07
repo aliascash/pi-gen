@@ -40,6 +40,7 @@ pipeline {
         stage('Build image') {
             steps {
                 script {
+                    sh "rm -rf ${WORKSPACE}/work"
                     sh "echo IMG_NAME=Spectrecoin > config\n" +
                        "echo SPECTRECOIN_RELEASE=${SPECTRECOIN_RELEASE} >> config\n" +
                        "echo BLOCKCHAIN_ARCHIVE_VERSION=${BLOCKCHAIN_ARCHIVE_VERSION} >> config"
