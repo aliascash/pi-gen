@@ -18,7 +18,7 @@ pipeline {
     }
     parameters {
         string defaultValue: 'latest', description: 'From which version should the image be created?', name: 'SPECTRECOIN_RELEASE', trim: false
-        string defaultValue: '2018-10-16', description: 'Which date has the bootstrapped blockchain archive?', name: 'BLOCKCHAIN_ARCHIVE_VERSION', trim: false
+        string defaultValue: '2018-11-08', description: 'Which date has the bootstrapped blockchain archive?', name: 'BLOCKCHAIN_ARCHIVE_VERSION', trim: false
     }
     stages {
         stage('Notification') {
