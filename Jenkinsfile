@@ -49,7 +49,7 @@ pipeline {
                                 echo GIT_COMMIT_SHORT=${GIT_COMMIT_SHORT} >> config
                                 echo BLOCKCHAIN_ARCHIVE_VERSION=${BLOCKCHAIN_ARCHIVE_VERSION} >> config
                                 touch ./stage4/SKIP ./stage4/SKIP_IMAGES
-                                CONTINUE=1 ./build-docker.sh
+                                ./build-docker.sh
                             """
                     )
                 }
@@ -79,6 +79,9 @@ pipeline {
         }
     }
     post {
+        always {
+            sh "docker system prune --all --force"
+        }
         success {
             script {
                 if (!hudson.model.Result.SUCCESS.equals(currentBuild.getPreviousBuild()?.getResult())) {

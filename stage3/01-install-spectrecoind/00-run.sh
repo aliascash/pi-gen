@@ -8,13 +8,11 @@ fi
 if [ -z "${BLOCKCHAIN_ARCHIVE_VERSION}" ] ; then
     BLOCKCHAIN_ARCHIVE_VERSION=2018-11-08
 fi
-RASPI_ARCHIVE_VERSION=${SPECTRECOIN_RELEASE}
-#RASPI_ARCHIVE_VERSION=2.1.0
 DIALOG_ARCHIVE_VERSION=1.3-20180621
 
 # ============================================================================
 # Install Spectrecoin binaries
-wget https://github.com/spectrecoin/spectre/releases/download/${SPECTRECOIN_RELEASE}/Spectrecoin-${RASPI_ARCHIVE_VERSION}-${GIT_COMMIT_SHORT}-RaspberryPi.tgz -O Spectrecoin-RaspberryPi.tgz
+wget https://github.com/spectrecoin/spectre/releases/download/${SPECTRECOIN_RELEASE}/Spectrecoin-${SPECTRECOIN_RELEASE}-${GIT_COMMIT_SHORT}-RaspberryPi.tgz -O Spectrecoin-RaspberryPi.tgz
 tar xzf Spectrecoin-RaspberryPi.tgz
 
 #install -v -o 1000 -g 1000 -m 744 usr/local/bin/spectrecoin     "${ROOTFS_DIR}/usr/bin/"
