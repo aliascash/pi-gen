@@ -49,7 +49,7 @@ pipeline {
                                 echo GIT_COMMIT_SHORT=${GIT_COMMIT_SHORT} >> config
                                 echo BLOCKCHAIN_ARCHIVE_VERSION=${BLOCKCHAIN_ARCHIVE_VERSION} >> config
                                 touch ./stage4/SKIP ./stage4/SKIP_IMAGES
-                                ./build-docker.sh
+                                CONTINUE=1 ./build-docker.sh
                             """
                     )
                 }
