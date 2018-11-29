@@ -17,8 +17,9 @@ pipeline {
         DISCORD_WEBHOOK = credentials('991ce248-5da9-4068-9aea-8a6c2c388a19')
     }
     parameters {
-        string defaultValue: 'latest', description: 'From which version should the image be created?', name: 'SPECTRECOIN_RELEASE', trim: false
-        string defaultValue: '2018-11-08', description: 'Which date has the bootstrapped blockchain archive?', name: 'BLOCKCHAIN_ARCHIVE_VERSION', trim: false
+        string(name: 'SPECTRECOIN_RELEASE', defaultValue: '2.1.0', description: 'Which release of Spectrecoin should be used?')
+        string(name: 'GIT_COMMIT_SHORT', defaultValue: '', description: 'Git short commit, which is part of the name of required archive.')
+        string(name: 'BLOCKCHAIN_ARCHIVE_VERSION', defaultValue: '2018-11-22', description: 'Which date has the bootstrapped blockchain archive?', trim: false)
     }
     stages {
         stage('Notification') {
@@ -40,12 +41,17 @@ pipeline {
         stage('Build image') {
             steps {
                 script {
-                    sh "rm -rf ${WORKSPACE}/work"
-                    sh "echo IMG_NAME=Spectrecoin > config\n" +
-                       "echo SPECTRECOIN_RELEASE=${SPECTRECOIN_RELEASE} >> config\n" +
-                       "echo BLOCKCHAIN_ARCHIVE_VERSION=${BLOCKCHAIN_ARCHIVE_VERSION} >> config"
-                    sh "touch ./stage4/SKIP ./stage4/SKIP_IMAGES"
-                    sh "./build-docker.sh"
+                    sh(
+                            script: """
+                                rm -rf ${WORKSPACE}/work
+                                echo IMG_NAME=Spectrecoin > config
+                                echo SPECTRECOIN_RELEASE=${SPECTRECOIN_RELEASE} >> config
+                                echo GIT_COMMIT_SHORT=${GIT_COMMIT_SHORT} >> config
+                                echo BLOCKCHAIN_ARCHIVE_VERSION=${BLOCKCHAIN_ARCHIVE_VERSION} >> config
+                                touch ./stage4/SKIP ./stage4/SKIP_IMAGES
+                                ./build-docker.sh
+                            """
+                    )
                 }
             }
         }
