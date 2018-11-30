@@ -69,7 +69,7 @@ pipeline {
                                     --rm \\
                                     -t \\
                                     -e GITHUB_TOKEN=${GITHUB_TOKEN} \\
-                                    -v ${WORKSPACE}/deploy/:/filesToUpload spectreproject/github-deployer:latest \\
+                                    -v ${WORKSPACE}/deploy/:/filesToUpload spectreproject/github-uploader:latest \\
                                     github-release upload \\
                                         --user spectrecoin \\
                                         --repo spectre \\
