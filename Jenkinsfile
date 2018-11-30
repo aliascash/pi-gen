@@ -43,6 +43,7 @@ pipeline {
                 script {
                     sh(
                             script: """
+                                sudo modprobe loop max_loop=256
                                 rm -rf ${WORKSPACE}/work
                                 echo IMG_NAME=Spectrecoin > config
                                 echo SPECTRECOIN_RELEASE=${SPECTRECOIN_RELEASE} >> config
@@ -62,18 +63,22 @@ pipeline {
                             script: "printf \$(date +%Y-%m-%d)",
                             returnStdout: true
                     )
-                    sh "docker run \\\n" +
-                            "--rm \\\n" +
-                            "-it \\\n" +
-                            "-e GITHUB_TOKEN=${GITHUB_TOKEN} \\\n" +
-                            "-v ${WORKSPACE}/deploy/:/filesToUpload spectreproject/github-deployer:latest \\\n" +
-                            "github-release upload \\\n" +
-                            "    --user spectrecoin \\\n" +
-                            "    --repo spectre \\\n" +
-                            "    --tag ${SPECTRECOIN_RELEASE} \\\n" +
-                            "    --name \"Spectrecoin-${SPECTRECOIN_RELEASE}-RaspberryPi-RaspbianLight.zip\" \\\n" +
-                            "    --file /filesToUpload/image_${CURRENT_DATE}-Spectrecoin-lite.zip \\\n" +
-                            "    --replace"
+                    sh(
+                            script: """
+                                docker run \\
+                                    --rm \\
+                                    -t \\
+                                    -e GITHUB_TOKEN=${GITHUB_TOKEN} \\
+                                    -v ${WORKSPACE}/deploy/:/filesToUpload spectreproject/github-deployer:latest \\
+                                    github-release upload \\
+                                        --user spectrecoin \\
+                                        --repo spectre \\
+                                        --tag ${SPECTRECOIN_RELEASE} \\
+                                        --name "Spectrecoin-${SPECTRECOIN_RELEASE}-RaspbianLight.zip" \\
+                                        --file /filesToUpload/image_${CURRENT_DATE}-Spectrecoin-lite.zip \\
+                                        --replace
+                            """
+                    )
                 }
             }
         }
