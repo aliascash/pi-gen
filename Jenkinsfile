@@ -38,6 +38,20 @@ pipeline {
                 )
             }
         }
+        stage('Check if required parameters given') {
+            steps {
+                script {
+                    sh(
+                            script: """
+                                if [ -z "${GIT_COMMIT_SHORT}" ] ; then
+                                    echo "Parameter GIT_COMMIT_SHORT is required!"
+                                    exit 1
+                                fi
+                            """
+                    )
+                }
+            }
+        }
         stage('Build image') {
             steps {
                 script {
@@ -74,7 +88,7 @@ pipeline {
                                         --user spectrecoin \\
                                         --repo spectre \\
                                         --tag ${SPECTRECOIN_RELEASE} \\
-                                        --name "Spectrecoin-${SPECTRECOIN_RELEASE}-RaspbianLight.zip" \\
+                                        --name "Spectrecoin-${SPECTRECOIN_RELEASE}-${GIT_COMMIT_SHORT}-RaspbianLight.zip" \\
                                         --file /filesToUpload/image_${CURRENT_DATE}-Spectrecoin-lite.zip \\
                                         --replace
                             """
