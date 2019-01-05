@@ -65,7 +65,7 @@ rm -rf Spectrecoin-Blockchain*
 # ============================================================================
 # Install prebuild dialog binaries
 # Necessary as long as the official dialog package is outdated
-wget https://github.com/spectrecoin/spectre-rpc-sh-ui/releases/download/latest/Dialog-${DIALOG_ARCHIVE_VERSION}.tgz -O Dialog.tgz
+wget https://github.com/spectrecoin/spectrecoin-sh-rpc-ui/releases/download/latest/Dialog-${DIALOG_ARCHIVE_VERSION}.tgz -O Dialog.tgz
 tar xzf Dialog.tgz
 
 install -v -o 1000 -g 1000 -m 755 usr/local/bin/dialog                "${ROOTFS_DIR}/usr/local/bin/"
@@ -94,21 +94,21 @@ EOF
 
 # ============================================================================
 # Install Spectrecoin-RPC-UI
-git clone https://github.com/spectrecoin/spectre-rpc-sh-ui.git
+git clone https://github.com/spectrecoin/spectrecoin-sh-rpc-ui.git
 
-install -d -o 1000 -g 1000                                                  "${ROOTFS_DIR}/home/pi/spectrecoin-rpc-sh-ui"
-install -d -o 1000 -g 1000                                                  "${ROOTFS_DIR}/home/pi/spectrecoin-rpc-sh-ui/include"
-install -d -o 1000 -g 1000                                                  "${ROOTFS_DIR}/home/pi/spectrecoin-rpc-sh-ui/sample_config_daemon"
-install -v -o 1000 -g 1000 -m 644 spectre-rpc-sh-ui/include/*               "${ROOTFS_DIR}/home/pi/spectrecoin-rpc-sh-ui/include/"
-install -v -o 1000 -g 1000 -m 644 spectre-rpc-sh-ui/sample_config_daemon/*  "${ROOTFS_DIR}/home/pi/spectrecoin-rpc-sh-ui/sample_config_daemon"
-install -v -o 1000 -g 1000 -m 644 spectre-rpc-sh-ui/README.md               "${ROOTFS_DIR}/home/pi/spectrecoin-rpc-sh-ui/README.md"
-install -v -o 1000 -g 1000 -m 755 spectre-rpc-sh-ui/spectrecoin_rpc_ui.sh   "${ROOTFS_DIR}/home/pi/spectrecoin-rpc-sh-ui/spectrecoin_rpc_ui.sh"
-install -v -o 1000 -g 1000 -m 644 spectre-rpc-sh-ui/VERSION                 "${ROOTFS_DIR}/home/pi/spectrecoin-rpc-sh-ui/VERSION"
+install -d -o 1000 -g 1000                                                      "${ROOTFS_DIR}/home/pi/spectrecoin-rpc-sh-ui"
+install -d -o 1000 -g 1000                                                      "${ROOTFS_DIR}/home/pi/spectrecoin-rpc-sh-ui/include"
+install -d -o 1000 -g 1000                                                      "${ROOTFS_DIR}/home/pi/spectrecoin-rpc-sh-ui/sample_config_daemon"
+install -v -o 1000 -g 1000 -m 644 spectrecoin-sh-rpc-ui/include/*               "${ROOTFS_DIR}/home/pi/spectrecoin-rpc-sh-ui/include/"
+install -v -o 1000 -g 1000 -m 644 spectrecoin-sh-rpc-ui/sample_config_daemon/*  "${ROOTFS_DIR}/home/pi/spectrecoin-rpc-sh-ui/sample_config_daemon"
+install -v -o 1000 -g 1000 -m 644 spectrecoin-sh-rpc-ui/README.md               "${ROOTFS_DIR}/home/pi/spectrecoin-rpc-sh-ui/README.md"
+install -v -o 1000 -g 1000 -m 755 spectrecoin-sh-rpc-ui/spectrecoin_rpc_ui.sh   "${ROOTFS_DIR}/home/pi/spectrecoin-rpc-sh-ui/spectrecoin_rpc_ui.sh"
+install -v -o 1000 -g 1000 -m 644 spectrecoin-sh-rpc-ui/VERSION                 "${ROOTFS_DIR}/home/pi/spectrecoin-rpc-sh-ui/VERSION"
 
 # Use config from RPC-UI also on wallet
-install -v -o 1000 -g 1000 -m 644 spectre-rpc-sh-ui/sample_config_daemon/spectrecoin.conf  "${ROOTFS_DIR}/home/pi/.spectrecoin/"
+install -v -o 1000 -g 1000 -m 644 spectrecoin-sh-rpc-ui/sample_config_daemon/spectrecoin.conf  "${ROOTFS_DIR}/home/pi/.spectrecoin/"
 
-rm -rf spectre-rpc-sh-ui/
+rm -rf spectrecoin-sh-rpc-ui/
 
 
 
