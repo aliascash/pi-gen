@@ -15,8 +15,8 @@ DIALOG_ARCHIVE_VERSION=1.3-20180621
 wget https://github.com/spectrecoin/spectre/releases/download/${SPECTRECOIN_RELEASE}/Spectrecoin-${SPECTRECOIN_RELEASE}-${GIT_COMMIT_SHORT}-RaspberryPi.tgz -O Spectrecoin-RaspberryPi.tgz
 tar xzf Spectrecoin-RaspberryPi.tgz
 
-#install -v -o 1000 -g 1000 -m 744 usr/local/bin/spectrecoin     "${ROOTFS_DIR}/usr/bin/"
-install -v -o 1000 -g 1000 -m 744 usr/local/bin/spectrecoind    "${ROOTFS_DIR}/usr/bin/"
+#install -v -o 1000 -g 1000 -m 744 usr/local/bin/spectrecoin     "${ROOTFS_DIR}/usr/local/bin/"
+install -v -o 1000 -g 1000 -m 744 usr/local/bin/spectrecoind    "${ROOTFS_DIR}/usr/local/bin/"
 
 rm -f /tmp/Spectrecoin-RaspberryPi.tgz
 rm -rf usr/

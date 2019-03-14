@@ -16,7 +16,7 @@
 PATH=/sbin:/usr/sbin:/bin:/usr/bin
 DESC="Spectrecoin Daemon"
 NAME=spectrecoind
-DAEMON=/usr/bin/${NAME}
+DAEMON=/usr/local/bin/${NAME}
 PIDFILE=/var/run/${NAME}/${NAME}.pid
 SCRIPTNAME=/etc/init.d/${NAME}
 CHUID=pi:pi
