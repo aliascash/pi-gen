@@ -1,12 +1,12 @@
 #!/bin/bash -e
 if [ -z "${SPECTRECOIN_RELEASE}" ] ; then
-    SPECTRECOIN_RELEASE=2.2.0
+    SPECTRECOIN_RELEASE=3.0.6
 fi
 if [ -z "${GIT_COMMIT_SHORT}" ] ; then
     GIT_COMMIT_SHORT=HEAD
 fi
 if [ -z "${BLOCKCHAIN_ARCHIVE_VERSION}" ] ; then
-    BLOCKCHAIN_ARCHIVE_VERSION=2018-11-08
+    BLOCKCHAIN_ARCHIVE_VERSION=2019-03-31
 fi
 DIALOG_ARCHIVE_VERSION=1.3-20180621
 
@@ -35,8 +35,7 @@ EOF
 
 # ============================================================================
 # Bootstrap blockchain
-#wget https://github.com/spectrecoin/spectre/releases/download/${SPECTRECOIN_RELEASE}/Spectrecoin-Blockchain-${BLOCKCHAIN_ARCHIVE_VERSION}.zip -O Spectrecoin-Blockchain.zip
-wget https://github.com/spectrecoin/spectre/releases/download/${SPECTRECOIN_RELEASE}/Spectrecoin-Blockchain-${BLOCKCHAIN_ARCHIVE_VERSION}.zip -O Spectrecoin-Blockchain.zip
+wget https://github.com/spectrecoin/spectre/releases/download/${SPECTRECOIN_RELEASE}/Spectrecoin-Blockchain-v3-${BLOCKCHAIN_ARCHIVE_VERSION}.zip -O Spectrecoin-Blockchain.zip
 
 mkdir Spectrecoin-Blockchain
 unzip Spectrecoin-Blockchain.zip -d Spectrecoin-Blockchain/
