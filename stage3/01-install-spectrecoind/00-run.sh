@@ -93,22 +93,17 @@ EOF
 
 # ============================================================================
 # Install Spectrecoin-RPC-UI
+cd "${ROOTFS_DIR}/home/pi/"
 git clone https://github.com/spectrecoin/spectrecoin-sh-rpc-ui.git
-
-install -d -o 1000 -g 1000                                                      "${ROOTFS_DIR}/home/pi/spectrecoin-rpc-sh-ui"
-install -d -o 1000 -g 1000                                                      "${ROOTFS_DIR}/home/pi/spectrecoin-rpc-sh-ui/include"
-install -d -o 1000 -g 1000                                                      "${ROOTFS_DIR}/home/pi/spectrecoin-rpc-sh-ui/sample_config_daemon"
-install -v -o 1000 -g 1000 -m 644 spectrecoin-sh-rpc-ui/include/*               "${ROOTFS_DIR}/home/pi/spectrecoin-rpc-sh-ui/include/"
-install -v -o 1000 -g 1000 -m 644 spectrecoin-sh-rpc-ui/sample_config_daemon/*  "${ROOTFS_DIR}/home/pi/spectrecoin-rpc-sh-ui/sample_config_daemon"
-install -v -o 1000 -g 1000 -m 644 spectrecoin-sh-rpc-ui/README.md               "${ROOTFS_DIR}/home/pi/spectrecoin-rpc-sh-ui/README.md"
-install -v -o 1000 -g 1000 -m 755 spectrecoin-sh-rpc-ui/spectrecoin_rpc_ui.sh   "${ROOTFS_DIR}/home/pi/spectrecoin-rpc-sh-ui/spectrecoin_rpc_ui.sh"
-install -v -o 1000 -g 1000 -m 644 spectrecoin-sh-rpc-ui/VERSION                 "${ROOTFS_DIR}/home/pi/spectrecoin-rpc-sh-ui/VERSION"
+chown -R 1000:1000 spectrecoin-sh-rpc-ui
+chmod -R 644 spectrecoin-sh-rpc-ui
+chmod 755 spectrecoin-sh-rpc-ui/spectrecoin_rpc_ui.sh
 
 # Use config from RPC-UI also on wallet
-install -v -o 1000 -g 1000 -m 644 spectrecoin-sh-rpc-ui/sample_config_daemon/spectrecoin.conf  "${ROOTFS_DIR}/home/pi/.spectrecoin/"
+cp spectrecoin-sh-rpc-ui/sample_config_daemon/spectrecoin.conf  .spectrecoin/
 
-rm -rf spectrecoin-sh-rpc-ui/
-
+# Go back where we came from
+cd -
 
 
 # ============================================================================
@@ -117,7 +112,7 @@ rm -rf spectrecoin-sh-rpc-ui/
 # - 'wallet-start' to start daemon
 # - 'wallet-stop' to stop daemon
 # - 'wallet-status' to show daemon status
-echo "alias ui='/home/pi/spectrecoin-rpc-sh-ui/spectrecoin_rpc_ui.sh'"   > bash_aliases
+echo "alias ui='/home/pi/spectrecoin-sh-rpc-ui/spectrecoin_rpc_ui.sh'"   > bash_aliases
 echo "alias wallet-start='sudo service spectrecoind start'"             >> bash_aliases
 echo "alias wallet-stop='sudo service spectrecoind stop'"               >> bash_aliases
 echo "alias wallet-status='sudo service spectrecoind status'"           >> bash_aliases
