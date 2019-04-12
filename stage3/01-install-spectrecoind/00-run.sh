@@ -106,9 +106,11 @@ cp spectrecoin-sh-rpc-ui/sample_config_daemon/spectrecoin.conf  .spectrecoin/
 cd -
 
 
+
 # ============================================================================
 # Define aliases:
-# - 'ui' for the Spectrecoin-RPC-UI
+# - 'ui' for the Spectrecoin-Shell-UI
+# - 'update-ui' to update the Shell-UI
 # - 'wallet-start' to start daemon
 # - 'wallet-stop' to stop daemon
 # - 'wallet-status' to show daemon status
