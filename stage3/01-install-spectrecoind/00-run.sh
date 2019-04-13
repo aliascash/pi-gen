@@ -112,12 +112,12 @@ EOF
 # - 'wallet-start' to start daemon
 # - 'wallet-stop' to stop daemon
 # - 'wallet-status' to show daemon status
-echo "alias ui='/home/pi/spectrecoin-sh-rpc-ui/spectrecoin_rpc_ui.sh'"                       > bash_aliases
-echo "alias update-ui='cd ~/spectre-rpc-sh-ui ; git reset --hard HEAD ; git pull ; cd -'"   >> bash_aliases
-echo "alias wallet-start='sudo service spectrecoind start'"                                 >> bash_aliases
-echo "alias wallet-stop='sudo service spectrecoind stop'"                                   >> bash_aliases
-echo "alias wallet-status='sudo service spectrecoind status'"                               >> bash_aliases
-install -v -o 1000 -g 1000 -m 644 bash_aliases                                              "${ROOTFS_DIR}/home/pi/.bash_aliases"
+echo "alias ui='/home/pi/spectrecoin-sh-rpc-ui/spectrecoin_rpc_ui.sh'"                           > bash_aliases
+echo "alias update-ui='cd ~/spectrecoin-sh-rpc-ui ; git reset --hard HEAD ; git pull ; cd -'"   >> bash_aliases
+echo "alias wallet-start='sudo service spectrecoind start'"                                     >> bash_aliases
+echo "alias wallet-stop='sudo service spectrecoind stop'"                                       >> bash_aliases
+echo "alias wallet-status='sudo service spectrecoind status'"                                   >> bash_aliases
+install -v -o 1000 -g 1000 -m 644 bash_aliases                            "${ROOTFS_DIR}/home/pi/.bash_aliases"
 rm -f bash_aliases
 
 
