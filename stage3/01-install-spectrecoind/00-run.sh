@@ -93,17 +93,15 @@ EOF
 
 # ============================================================================
 # Install Spectrecoin-RPC-UI
-cd "${ROOTFS_DIR}/home/pi/"
+on_chroot << EOF
+cd "/home/pi/"
+
 git clone https://github.com/spectrecoin/spectrecoin-sh-rpc-ui.git
 chown -R 1000:1000 spectrecoin-sh-rpc-ui
-chmod -R 644 spectrecoin-sh-rpc-ui
-chmod 755 spectrecoin-sh-rpc-ui/spectrecoin_rpc_ui.sh
 
 # Use config from RPC-UI also on wallet
 cp spectrecoin-sh-rpc-ui/sample_config_daemon/spectrecoin.conf  .spectrecoin/
-
-# Go back where we came from
-cd -
+EOF
 
 
 
