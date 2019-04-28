@@ -1,6 +1,6 @@
 #!/bin/bash -e
 if [ -z "${SPECTRECOIN_RELEASE}" ] ; then
-    SPECTRECOIN_RELEASE=3.0.7
+    SPECTRECOIN_RELEASE=3.0.8
 fi
 if [ -z "${GIT_COMMIT_SHORT}" ] ; then
     GIT_COMMIT_SHORT=HEAD
