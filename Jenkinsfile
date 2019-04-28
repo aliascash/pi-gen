@@ -17,9 +17,9 @@ pipeline {
         DISCORD_WEBHOOK = credentials('991ce248-5da9-4068-9aea-8a6c2c388a19')
     }
     parameters {
-        string(name: 'SPECTRECOIN_RELEASE', defaultValue: '2.2.2', description: 'Which release of Spectrecoin should be used?')
-        string(name: 'GIT_COMMIT_SHORT', defaultValue: '', description: 'Git short commit, which is part of the name of required archive.')
-        string(name: 'BLOCKCHAIN_ARCHIVE_VERSION', defaultValue: '2019-02-28', description: 'Which date has the bootstrapped blockchain archive?', trim: false)
+        string(name: 'SPECTRECOIN_RELEASE', defaultValue: '3.0.8', description: 'Which release of Spectrecoin should be used?')
+        string(name: 'GIT_COMMIT_SHORT', defaultValue: '69e1d6cd', description: 'Git short commit, which is part of the name of required archive.')
+        string(name: 'BLOCKCHAIN_ARCHIVE_VERSION', defaultValue: '2019-04-28', description: 'Which date has the bootstrapped blockchain archive?', trim: false)
     }
     stages {
         stage('Notification') {
