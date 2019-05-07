@@ -101,6 +101,7 @@ chown -R 1000:1000 spectrecoin-sh-rpc-ui
 
 # Use config from RPC-UI also on wallet
 cp spectrecoin-sh-rpc-ui/sample_config_daemon/spectrecoin.conf  .spectrecoin/
+chown 1000:1000 .spectrecoin/spectrecoin.conf
 EOF
 
 
