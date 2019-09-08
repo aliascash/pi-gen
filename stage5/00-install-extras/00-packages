@@ -1,6 +1,6 @@
-python3-thonny
+mu-editor
 sonic-pi
-scratch nuscratch scratch2
+scratch nuscratch scratch2 scratch3
 smartsim
 
 minecraft-pi python-minecraftpi
@@ -8,7 +8,7 @@ python-sense-emu sense-emu-tools python-sense-emu-doc
 
 wolfram-engine
 claws-mail
-greenfoot bluej
+greenfoot-unbundled bluej
 nodered
 realvnc-vnc-viewer
 
