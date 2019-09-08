@@ -2,7 +2,7 @@ bc
 ca-certificates
 git
 mc
-libevent-2.0-5
+libevent-2.1-6
 libtool
 libseccomp2
 obfs4proxy
