@@ -89,7 +89,7 @@ pipeline {
                                         --user spectrecoin \\
                                         --repo spectre \\
                                         --tag ${SPECTRECOIN_RELEASE} \\
-                                        --name "Spectrecoin-${SPECTRECOIN_RELEASE}-${GIT_COMMIT_SHORT}-RaspbianLight.zip" \\
+                                        --name "Spectrecoin-${SPECTRECOIN_RELEASE}-${GIT_COMMIT_SHORT}-RaspbianLightBuster.zip" \\
                                         --file /filesToUpload/image_${CURRENT_DATE}-Spectrecoin.zip \\
                                         --replace
                             """
