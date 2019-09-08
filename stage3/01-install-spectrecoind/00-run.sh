@@ -8,7 +8,6 @@ fi
 if [ -z "${BLOCKCHAIN_ARCHIVE_VERSION}" ] ; then
     BLOCKCHAIN_ARCHIVE_VERSION=2019-09-04
 fi
-DIALOG_ARCHIVE_VERSION=1.3-20180621
 
 # ============================================================================
 # Install Spectrecoin binaries
@@ -58,36 +57,6 @@ install -v -o 1000 -g 1000 -m 600 Spectrecoin-Blockchain/txleveldb/MANIFEST*   "
 install -v -o 1000 -g 1000 -m 600 Spectrecoin-Blockchain/blk0001.dat           "${ROOTFS_DIR}/home/pi/.spectrecoin/"
 
 rm -rf Spectrecoin-Blockchain*
-
-
-
-# ============================================================================
-# Install prebuild dialog binaries
-# Necessary as long as the official dialog package is outdated
-wget https://github.com/spectrecoin/spectrecoin-sh-rpc-ui/releases/download/latest/Dialog-${DIALOG_ARCHIVE_VERSION}.tgz -O Dialog.tgz
-tar xzf Dialog.tgz
-
-install -v -o 1000 -g 1000 -m 755 usr/local/bin/dialog                "${ROOTFS_DIR}/usr/local/bin/"
-install -v -o 1000 -g 1000 -m 644 usr/local/lib/libdialog.a           "${ROOTFS_DIR}/usr/local/lib/"
-install -d -o 1000 -g 1000 -m 755                                     "${ROOTFS_DIR}/usr/local/share/man/man1/"
-install -v -o 1000 -g 1000 -m 644 usr/local/share/man/man1/dialog.1   "${ROOTFS_DIR}/usr/local/share/man/man1/"
-
-rm -f Dialog.tgz
-rm -rf usr/
-
-on_chroot << EOF
-# Handle possible existing dialog
-if [ -e /usr/bin/dialog ] ; then
-    mv /usr/bin/dialog /usr/bin/dialog_
-fi
-if [ -e /usr/share/man/man1/dialog.1 ] ; then
-    mv /usr/share/man/man1/dialog.1 /usr/share/man/man1/dialog.1_
-fi
-
-# Create links to new binary
-ln -s /usr/local/bin/dialog              /usr/bin/dialog
-ln -s /usr/local/share/man/man1/dialog.1 /usr/share/man/man1/dialog.1
-EOF
 
 
 
