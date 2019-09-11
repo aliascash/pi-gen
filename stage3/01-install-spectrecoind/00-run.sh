@@ -11,7 +11,7 @@ fi
 
 # ============================================================================
 # Install Spectrecoin binaries
-wget https://github.com/spectrecoin/spectre/releases/download/${SPECTRECOIN_RELEASE}/Spectrecoin-${SPECTRECOIN_RELEASE}-${GIT_COMMIT_SHORT}-RaspberryPi.tgz -O Spectrecoin-RaspberryPi.tgz
+wget https://github.com/spectrecoin/spectre/releases/download/${SPECTRECOIN_RELEASE}/Spectrecoin-${SPECTRECOIN_RELEASE}-${GIT_COMMIT_SHORT}-RaspberryPi-Buster.tgz -O Spectrecoin-RaspberryPi.tgz
 tar xzf Spectrecoin-RaspberryPi.tgz
 
 #install -v -o 1000 -g 1000 -m 744 usr/local/bin/spectrecoin     "${ROOTFS_DIR}/usr/local/bin/"
