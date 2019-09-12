@@ -1,11 +1,16 @@
 #!/bin/bash -e
-if [ -z "${SPECTRECOIN_RELEASE}" ] ; then
+
+if [[ -e /config ]] ; then
+    . /config
+fi
+
+if [[ -z "${SPECTRECOIN_RELEASE}" ]] ; then
     SPECTRECOIN_RELEASE=4.0.0
 fi
-if [ -z "${GIT_COMMIT_SHORT}" ] ; then
+if [[ -z "${GIT_COMMIT_SHORT}" ]] ; then
     GIT_COMMIT_SHORT=HEAD
 fi
-if [ -z "${BLOCKCHAIN_ARCHIVE_VERSION}" ] ; then
+if [[ -z "${BLOCKCHAIN_ARCHIVE_VERSION}" ]] ; then
     BLOCKCHAIN_ARCHIVE_VERSION=2019-09-04
 fi
 
