@@ -1,5 +1,6 @@
 bc
 ca-certificates
+dialog
 git
 mc
 libboost-chrono1.67.0
@@ -12,11 +13,3 @@ libseccomp2
 obfs4proxy
 tor
 wget
-
-# Latest and greatest version of 'dialog' is compiled on corresponding builder image,
-# So install dialog dependencies manually as long as the real package is not up2date
-# See https://packages.debian.org/stretch/dialog
-debianutils
-libc6
-libncursesw5
-libtinfo5
