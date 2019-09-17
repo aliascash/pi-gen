@@ -1,7 +1,7 @@
 apt-transport-https
+apt-transport-tor
 bc
 ca-certificates
-deb.torproject.org-keyring
 dialog
 git
 mc
