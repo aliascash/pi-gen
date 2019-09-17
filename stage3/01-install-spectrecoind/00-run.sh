@@ -116,7 +116,7 @@ rm -f ssh
 # ============================================================================
 # Add Tor repository and install it
 torRepoBuster="deb https://deb.torproject.org/torproject.org buster main"
-echo "${torRepo}" > tor_repo
+echo "${torRepoBuster}" > tor_repo
 install -v -o 0 -g 0 -m 644 tor_repo "${ROOTFS_DIR}/etc/apt/sources.list.d/tor.list"
 rm -f tor_repo
 on_chroot << EOF
