@@ -28,9 +28,8 @@ rm -rf usr/
 
 
 # ============================================================================
-# Install Spectrecoin init script
-install -m 755 files/spectrecoind.sh	"${ROOTFS_DIR}/etc/init.d/spectrecoind"
-install -m 644 files/spectrecoin.conf	"${ROOTFS_DIR}/usr/lib/tmpfiles.d/"
+# Install Spectrecoin service
+install -m 644 files/spectrecoind.service	"${ROOTFS_DIR}/lib/systemd/system/"
 on_chroot << EOF
 systemctl enable spectrecoind
 EOF
