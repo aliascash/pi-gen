@@ -13,4 +13,5 @@ libevent-2.1-6
 libtool
 libseccomp2
 obfs4proxy
+tor
 wget
