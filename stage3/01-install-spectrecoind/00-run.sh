@@ -14,6 +14,24 @@ if [[ -z "${BLOCKCHAIN_ARCHIVE_VERSION}" ]] ; then
     BLOCKCHAIN_ARCHIVE_VERSION=2019-09-04
 fi
 
+
+
+# ============================================================================
+# Add Tor repository and install it
+torRepoBuster="deb https://deb.torproject.org/torproject.org buster main"
+echo "${torRepoBuster}" > tor_repo
+install -v -o 0 -g 0 -m 644 tor_repo "${ROOTFS_DIR}/etc/apt/sources.list.d/tor.list"
+rm -f tor_repo
+on_chroot << EOF
+curl --insecure https://deb.torproject.org/torproject.org/A3C4F0F979CAA22CDBA8F512EE8CBC9E886DDD89.asc | gpg --import
+gpg --export A3C4F0F979CAA22CDBA8F512EE8CBC9E886DDD89 | sudo apt-key add -
+apt-get update
+apt-get install -y tor deb.torproject.org-keyring
+apt-get clean
+EOF
+
+
+
 # ============================================================================
 # Install Spectrecoin binaries
 wget https://github.com/spectrecoin/spectre/releases/download/${SPECTRECOIN_RELEASE}/Spectrecoin-${SPECTRECOIN_RELEASE}-${GIT_COMMIT_SHORT}-RaspberryPi-Buster.tgz -O Spectrecoin-RaspberryPi.tgz
@@ -110,19 +128,3 @@ EOF
 touch ssh
 install -v ssh "${ROOTFS_DIR}/boot/"
 rm -f ssh
-
-
-
-# ============================================================================
-# Add Tor repository and install it
-torRepoBuster="deb https://deb.torproject.org/torproject.org buster main"
-echo "${torRepoBuster}" > tor_repo
-install -v -o 0 -g 0 -m 644 tor_repo "${ROOTFS_DIR}/etc/apt/sources.list.d/tor.list"
-rm -f tor_repo
-on_chroot << EOF
-curl --insecure https://deb.torproject.org/torproject.org/A3C4F0F979CAA22CDBA8F512EE8CBC9E886DDD89.asc | gpg --import
-gpg --export A3C4F0F979CAA22CDBA8F512EE8CBC9E886DDD89 | sudo apt-key add -
-apt-get update
-apt-get install -y tor deb.torproject.org-keyring
-apt-get clean
-EOF
