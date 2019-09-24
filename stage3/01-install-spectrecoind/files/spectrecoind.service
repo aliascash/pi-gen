@@ -9,7 +9,7 @@ Description=Spectrecoin daemon
 After=network.target
 
 [Service]
-ExecStart=/usr/local/bin/spectrecoind -daemon -pid=/run/spectrecoind/spectrecoind.pid -testnet -debug
+ExecStart=/usr/local/bin/spectrecoind -daemon -pid=/run/spectrecoind/spectrecoind.pid -debug
 # Creates /run/spectrecoind owned by pi
 RuntimeDirectory=spectrecoind
 User=pi
