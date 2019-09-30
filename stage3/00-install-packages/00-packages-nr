@@ -1,7 +1,4 @@
-apt-transport-https
-apt-transport-tor
 bc
-ca-certificates
 dialog
 git
 mc
@@ -14,4 +11,5 @@ libtool
 libseccomp2
 obfs4proxy
 tor
+deb.torproject.org-keyring
 wget
