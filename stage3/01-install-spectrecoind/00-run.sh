@@ -5,13 +5,13 @@ if [[ -e /config ]] ; then
 fi
 
 if [[ -z "${SPECTRECOIN_RELEASE}" ]] ; then
-    SPECTRECOIN_RELEASE=4.0.0
+    SPECTRECOIN_RELEASE=4.1.0
 fi
 if [[ -z "${GIT_COMMIT_SHORT}" ]] ; then
     GIT_COMMIT_SHORT=HEAD
 fi
 if [[ -z "${BLOCKCHAIN_ARCHIVE_VERSION}" ]] ; then
-    BLOCKCHAIN_ARCHIVE_VERSION=2019-10-02
+    BLOCKCHAIN_ARCHIVE_VERSION=2019-10-22
 fi
 
 
