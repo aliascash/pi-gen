@@ -56,7 +56,7 @@ EOF
 
 # ============================================================================
 # Bootstrap blockchain
-wget https://github.com/spectrecoin/spectre/releases/download/${SPECTRECOIN_RELEASE}/Spectrecoin-Blockchain-v3-${BLOCKCHAIN_ARCHIVE_VERSION}.zip -O Spectrecoin-Blockchain.zip
+wget https://github.com/spectrecoin/spectre/releases/download/${SPECTRECOIN_RELEASE}/Spectrecoin-Blockchain-v4-${BLOCKCHAIN_ARCHIVE_VERSION}.zip -O Spectrecoin-Blockchain.zip
 
 mkdir Spectrecoin-Blockchain
 unzip Spectrecoin-Blockchain.zip -d Spectrecoin-Blockchain/
