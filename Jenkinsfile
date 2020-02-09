@@ -19,7 +19,7 @@ pipeline {
     parameters {
         string(name: 'SPECTRECOIN_RELEASE', defaultValue: '4.1.0', description: 'Which release of Spectrecoin should be used?')
         string(name: 'GIT_COMMIT_SHORT', defaultValue: '8d027257', description: 'Git short commit, which is part of the name of required archive.')
-        string(name: 'BLOCKCHAIN_ARCHIVE_VERSION', defaultValue: '2020-01-07', description: 'Which date has the bootstrapped blockchain archive?', trim: false)
+        string(name: 'BLOCKCHAIN_ARCHIVE_VERSION', defaultValue: '2020-02-09', description: 'Which date has the bootstrapped blockchain archive?', trim: false)
     }
     stages {
         stage('Notification') {
