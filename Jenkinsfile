@@ -19,7 +19,6 @@ pipeline {
     parameters {
         string(name: 'SPECTRECOIN_RELEASE', defaultValue: '4.1.0', description: 'Which release of Spectrecoin should be used?')
         string(name: 'GIT_COMMIT_SHORT', defaultValue: '8d027257', description: 'Git short commit, which is part of the name of required archive.')
-        string(name: 'BLOCKCHAIN_ARCHIVE_VERSION', defaultValue: '2020-02-09', description: 'Which date has the bootstrapped blockchain archive?', trim: false)
     }
     stages {
         stage('Notification') {
@@ -62,7 +61,6 @@ pipeline {
                                 echo IMG_NAME=Spectrecoin > config
                                 echo SPECTRECOIN_RELEASE=${SPECTRECOIN_RELEASE} >> config
                                 echo GIT_COMMIT_SHORT=${GIT_COMMIT_SHORT} >> config
-                                echo BLOCKCHAIN_ARCHIVE_VERSION=${BLOCKCHAIN_ARCHIVE_VERSION} >> config
                                 echo ENABLE_SSH=1 >> config
                                 cat config
                                 touch ./stage4/SKIP ./stage4/SKIP_IMAGES ./stage5/SKIP ./stage5/SKIP_IMAGES
