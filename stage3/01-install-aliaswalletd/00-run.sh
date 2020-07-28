@@ -4,8 +4,8 @@ if [[ -e /config ]] ; then
     . /config
 fi
 
-if [[ -z "${SPECTRECOIN_RELEASE}" ]] ; then
-    SPECTRECOIN_RELEASE=4.1.0
+if [[ -z "${ALIAS_RELEASE}" ]] ; then
+    ALIAS_RELEASE=4.1.0
 fi
 if [[ -z "${GIT_COMMIT_SHORT}" ]] ; then
     GIT_COMMIT_SHORT=HEAD
@@ -31,7 +31,7 @@ fi
 
 # ============================================================================
 # Install Spectrecoin binaries
-wget https://github.com/spectrecoin/spectre/releases/download/${SPECTRECOIN_RELEASE}/Spectrecoin-${SPECTRECOIN_RELEASE}-${GIT_COMMIT_SHORT}-RaspberryPi-Buster.tgz -O Spectrecoin-RaspberryPi.tgz
+wget https://github.com/aliascash/aliaswallet/releases/download/${ALIAS_RELEASE}/Spectrecoin-${ALIAS_RELEASE}-${GIT_COMMIT_SHORT}-RaspberryPi-Buster.tgz -O Spectrecoin-RaspberryPi.tgz
 tar xzf Spectrecoin-RaspberryPi.tgz
 
 #install -v -o 1000 -g 1000 -m 744 usr/local/bin/spectrecoin     "${ROOTFS_DIR}/usr/local/bin/"
@@ -84,7 +84,7 @@ rm -rf Spectrecoin-Blockchain*
 on_chroot << EOF
 cd "/home/pi/"
 
-git clone https://github.com/spectrecoin/spectrecoin-sh-rpc-ui.git
+git clone https://github.com/aliascash/aliaswalletcoin-sh-rpc-ui.git
 chown -R 1000:1000 spectrecoin-sh-rpc-ui
 
 # Use config from RPC-UI also on wallet

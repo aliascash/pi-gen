@@ -17,7 +17,7 @@ pipeline {
         DISCORD_WEBHOOK = credentials('991ce248-5da9-4068-9aea-8a6c2c388a19')
     }
     parameters {
-        string(name: 'SPECTRECOIN_RELEASE', defaultValue: '4.1.0', description: 'Which release of Spectrecoin should be used?')
+        string(name: 'ALIAS_RELEASE', defaultValue: '4.1.0', description: 'Which release of Spectrecoin should be used?')
         string(name: 'GIT_COMMIT_SHORT', defaultValue: '8d027257', description: 'Git short commit, which is part of the name of required archive.')
     }
     stages {
@@ -59,7 +59,7 @@ pipeline {
                                 sudo modprobe loop max_loop=256
                                 rm -rf ${WORKSPACE}/work
                                 echo IMG_NAME=Spectrecoin > config
-                                echo SPECTRECOIN_RELEASE=${SPECTRECOIN_RELEASE} >> config
+                                echo ALIAS_RELEASE=${ALIAS_RELEASE} >> config
                                 echo GIT_COMMIT_SHORT=${GIT_COMMIT_SHORT} >> config
                                 echo ENABLE_SSH=1 >> config
                                 cat config
@@ -87,8 +87,8 @@ pipeline {
                                     github-release upload \\
                                         --user spectrecoin \\
                                         --repo spectre \\
-                                        --tag ${SPECTRECOIN_RELEASE} \\
-                                        --name "Spectrecoin-${SPECTRECOIN_RELEASE}-${GIT_COMMIT_SHORT}-RaspbianLightBuster.zip" \\
+                                        --tag ${ALIAS_RELEASE} \\
+                                        --name "Spectrecoin-${ALIAS_RELEASE}-${GIT_COMMIT_SHORT}-RaspbianLightBuster.zip" \\
                                         --file /filesToUpload/image_${CURRENT_DATE}-Spectrecoin-lite.zip \\
                                         --replace
                             """
