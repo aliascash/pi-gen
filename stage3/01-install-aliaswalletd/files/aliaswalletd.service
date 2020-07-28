@@ -1,20 +1,20 @@
 # It is not recommended to modify this file in-place, because it will
 # be overwritten during package upgrades. If you want to add further
 # options or overwrite existing ones then use
-# $ systemctl edit spectrecoind.service
+# $ systemctl edit aliaswalletd.service
 # See "man systemd.service" for details.
 
 [Unit]
-Description=Spectrecoin daemon
+Description=Aliaswallet daemon
 After=network.target
 
 [Service]
-ExecStart=/usr/local/bin/spectrecoind -daemon -pid=/run/spectrecoind/spectrecoind.pid -debug
-# Creates /run/spectrecoind owned by pi
-RuntimeDirectory=spectrecoind
+ExecStart=/usr/local/bin/aliaswalletd -daemon -pid=/run/aliaswalletd/aliaswalletd.pid -debug
+# Creates /run/aliaswalletd owned by pi
+RuntimeDirectory=aliaswalletd
 User=pi
 Type=forking
-PIDFile=/run/spectrecoind/spectrecoind.pid
+PIDFile=/run/aliaswalletd/aliaswalletd.pid
 Restart=on-failure
 
 # Hardening measures

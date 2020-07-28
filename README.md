@@ -2,14 +2,14 @@
 
 _Tool used to create the raspberrypi.org Raspbian images, containing [Spectrecoin](https://spectreproject.io/) daemon_
 
-## Changes and additions for Spectrecoin
+## Changes and additions for Alias
 
 On stage 2 ssh will be enabled by default.
 
-On stage 3 the Spectrecoin image will be created. For this the following steps will be performed:
+On stage 3 the Aliaswallet image will be created. For this the following steps will be performed:
 
 * Install required dependencies
-* Install Spectrecoin binaries
+* Install Aliaswallet binaries
 * Install init script
 * Bootstrap blockchain and transaction log
 * Install RPC Shell UI
@@ -81,7 +81,7 @@ The following environment variables are supported:
    be built and cached.  Note, `WORK_DIR` stores a complete copy of the target
    system for each build stage, amounting to tens of gigabytes in the case of
    Raspbian.
-   
+
    **CAUTION**: If your working directory is on an NTFS partition you probably won't be able to build. Make sure this is a proper Linux filesystem.
 
  * `DEPLOY_DIR`  (Default: `"$BASE_DIR/deploy"`)

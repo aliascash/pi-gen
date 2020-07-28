@@ -30,82 +30,82 @@ fi
 
 
 # ============================================================================
-# Install Spectrecoin binaries
-wget https://github.com/aliascash/aliaswallet/releases/download/${ALIAS_RELEASE}/Spectrecoin-${ALIAS_RELEASE}-${GIT_COMMIT_SHORT}-RaspberryPi-Buster.tgz -O Spectrecoin-RaspberryPi.tgz
-tar xzf Spectrecoin-RaspberryPi.tgz
+# Install Aliaswallet binaries
+wget https://github.com/aliascash/aliaswallet/releases/download/${ALIAS_RELEASE}/Aliaswallet-${ALIAS_RELEASE}-${GIT_COMMIT_SHORT}-RaspberryPi-Buster.tgz -O Aliaswallet-RaspberryPi.tgz
+tar xzf Aliaswallet-RaspberryPi.tgz
 
-#install -v -o 1000 -g 1000 -m 744 usr/local/bin/spectrecoin     "${ROOTFS_DIR}/usr/local/bin/"
-install -v -o 1000 -g 1000 -m 744 usr/local/bin/spectrecoind    "${ROOTFS_DIR}/usr/local/bin/"
+#install -v -o 1000 -g 1000 -m 744 usr/local/bin/aliaswallet     "${ROOTFS_DIR}/usr/local/bin/"
+install -v -o 1000 -g 1000 -m 744 usr/local/bin/aliaswalletd    "${ROOTFS_DIR}/usr/local/bin/"
 
-rm -f /tmp/Spectrecoin-RaspberryPi.tgz
+rm -f /tmp/Aliaswallet-RaspberryPi.tgz
 rm -rf usr/
 
 
 
 # ============================================================================
-# Install Spectrecoin service
-install -m 644 files/spectrecoind.service	"${ROOTFS_DIR}/lib/systemd/system/"
+# Install Aliaswallet service
+install -m 644 files/aliaswalletd.service	"${ROOTFS_DIR}/lib/systemd/system/"
 on_chroot << EOF
-systemctl enable spectrecoind
+systemctl enable aliaswalletd
 EOF
 
 
 
 # ============================================================================
 # Bootstrap blockchain
-wget https://download.spectreproject.io/files/bootstrap/BootstrapChain.zip -O Spectrecoin-Blockchain.zip
+wget https://download.alias.cash/files/bootstrap/BootstrapChain.zip -O Aliaswallet-Blockchain.zip
 
-mkdir Spectrecoin-Blockchain
-unzip Spectrecoin-Blockchain.zip -d Spectrecoin-Blockchain/
+mkdir Aliaswallet-Blockchain
+unzip Aliaswallet-Blockchain.zip -d Aliaswallet-Blockchain/
 
-install -d -o 1000 -g 1000 -m 755 "${ROOTFS_DIR}/home/pi/.spectrecoin/"
-install -d -o 1000 -g 1000 -m 755 "${ROOTFS_DIR}/home/pi/.spectrecoin/txleveldb/"
+install -d -o 1000 -g 1000 -m 755 "${ROOTFS_DIR}/home/pi/.aliaswallet/"
+install -d -o 1000 -g 1000 -m 755 "${ROOTFS_DIR}/home/pi/.aliaswallet/txleveldb/"
 
-install -v -o 1000 -g 1000 -m 600 Spectrecoin-Blockchain/txleveldb/*0.ldb      "${ROOTFS_DIR}/home/pi/.spectrecoin/txleveldb/"
-install -v -o 1000 -g 1000 -m 600 Spectrecoin-Blockchain/txleveldb/*1.ldb      "${ROOTFS_DIR}/home/pi/.spectrecoin/txleveldb/"
-install -v -o 1000 -g 1000 -m 600 Spectrecoin-Blockchain/txleveldb/*2.ldb      "${ROOTFS_DIR}/home/pi/.spectrecoin/txleveldb/"
-install -v -o 1000 -g 1000 -m 600 Spectrecoin-Blockchain/txleveldb/*3.ldb      "${ROOTFS_DIR}/home/pi/.spectrecoin/txleveldb/"
-install -v -o 1000 -g 1000 -m 600 Spectrecoin-Blockchain/txleveldb/*4.ldb      "${ROOTFS_DIR}/home/pi/.spectrecoin/txleveldb/"
-install -v -o 1000 -g 1000 -m 600 Spectrecoin-Blockchain/txleveldb/*5.ldb      "${ROOTFS_DIR}/home/pi/.spectrecoin/txleveldb/"
-install -v -o 1000 -g 1000 -m 600 Spectrecoin-Blockchain/txleveldb/*6.ldb      "${ROOTFS_DIR}/home/pi/.spectrecoin/txleveldb/"
-install -v -o 1000 -g 1000 -m 600 Spectrecoin-Blockchain/txleveldb/*7.ldb      "${ROOTFS_DIR}/home/pi/.spectrecoin/txleveldb/"
-install -v -o 1000 -g 1000 -m 600 Spectrecoin-Blockchain/txleveldb/*8.ldb      "${ROOTFS_DIR}/home/pi/.spectrecoin/txleveldb/"
-install -v -o 1000 -g 1000 -m 600 Spectrecoin-Blockchain/txleveldb/*9.ldb      "${ROOTFS_DIR}/home/pi/.spectrecoin/txleveldb/"
-install -v -o 1000 -g 1000 -m 600 Spectrecoin-Blockchain/txleveldb/CURRENT     "${ROOTFS_DIR}/home/pi/.spectrecoin/txleveldb/"
-install -v -o 1000 -g 1000 -m 600 Spectrecoin-Blockchain/txleveldb/MANIFEST*   "${ROOTFS_DIR}/home/pi/.spectrecoin/txleveldb/"
-install -v -o 1000 -g 1000 -m 600 Spectrecoin-Blockchain/blk0001.dat           "${ROOTFS_DIR}/home/pi/.spectrecoin/"
+install -v -o 1000 -g 1000 -m 600 Aliaswallet-Blockchain/txleveldb/*0.ldb      "${ROOTFS_DIR}/home/pi/.aliaswallet/txleveldb/"
+install -v -o 1000 -g 1000 -m 600 Aliaswallet-Blockchain/txleveldb/*1.ldb      "${ROOTFS_DIR}/home/pi/.aliaswallet/txleveldb/"
+install -v -o 1000 -g 1000 -m 600 Aliaswallet-Blockchain/txleveldb/*2.ldb      "${ROOTFS_DIR}/home/pi/.aliaswallet/txleveldb/"
+install -v -o 1000 -g 1000 -m 600 Aliaswallet-Blockchain/txleveldb/*3.ldb      "${ROOTFS_DIR}/home/pi/.aliaswallet/txleveldb/"
+install -v -o 1000 -g 1000 -m 600 Aliaswallet-Blockchain/txleveldb/*4.ldb      "${ROOTFS_DIR}/home/pi/.aliaswallet/txleveldb/"
+install -v -o 1000 -g 1000 -m 600 Aliaswallet-Blockchain/txleveldb/*5.ldb      "${ROOTFS_DIR}/home/pi/.aliaswallet/txleveldb/"
+install -v -o 1000 -g 1000 -m 600 Aliaswallet-Blockchain/txleveldb/*6.ldb      "${ROOTFS_DIR}/home/pi/.aliaswallet/txleveldb/"
+install -v -o 1000 -g 1000 -m 600 Aliaswallet-Blockchain/txleveldb/*7.ldb      "${ROOTFS_DIR}/home/pi/.aliaswallet/txleveldb/"
+install -v -o 1000 -g 1000 -m 600 Aliaswallet-Blockchain/txleveldb/*8.ldb      "${ROOTFS_DIR}/home/pi/.aliaswallet/txleveldb/"
+install -v -o 1000 -g 1000 -m 600 Aliaswallet-Blockchain/txleveldb/*9.ldb      "${ROOTFS_DIR}/home/pi/.aliaswallet/txleveldb/"
+install -v -o 1000 -g 1000 -m 600 Aliaswallet-Blockchain/txleveldb/CURRENT     "${ROOTFS_DIR}/home/pi/.aliaswallet/txleveldb/"
+install -v -o 1000 -g 1000 -m 600 Aliaswallet-Blockchain/txleveldb/MANIFEST*   "${ROOTFS_DIR}/home/pi/.aliaswallet/txleveldb/"
+install -v -o 1000 -g 1000 -m 600 Aliaswallet-Blockchain/blk0001.dat           "${ROOTFS_DIR}/home/pi/.aliaswallet/"
 
-rm -rf Spectrecoin-Blockchain*
+rm -rf Aliaswallet-Blockchain*
 
 
 
 # ============================================================================
-# Install Spectrecoin-RPC-UI
+# Install Aliaswallet RPC-UI
 on_chroot << EOF
 cd "/home/pi/"
 
-git clone https://github.com/aliascash/aliaswalletcoin-sh-rpc-ui.git
-chown -R 1000:1000 spectrecoin-sh-rpc-ui
+git clone https://github.com/aliascash/aliaswallet-sh-rpc-ui.git
+chown -R 1000:1000 aliaswallet-sh-rpc-ui
 
 # Use config from RPC-UI also on wallet
-cp spectrecoin-sh-rpc-ui/sample_config_daemon/spectrecoin.conf  .spectrecoin/
-chown 1000:1000 .spectrecoin/spectrecoin.conf
+cp aliaswallet-sh-rpc-ui/sample_config_daemon/aliaswallet.conf  .aliaswallet/
+chown 1000:1000 .aliaswallet/aliaswallet.conf
 EOF
 
 
 
 # ============================================================================
 # Define aliases:
-# - 'ui' for the Spectrecoin-Shell-UI
+# - 'ui' for the Aliaswallet-Shell-UI
 # - 'update-ui' to update the Shell-UI
 # - 'wallet-start' to start daemon
 # - 'wallet-stop' to stop daemon
 # - 'wallet-status' to show daemon status
-echo "alias ui='/home/pi/spectrecoin-sh-rpc-ui/spectrecoin_rpc_ui.sh'"                           > bash_aliases
-echo "alias update-ui='cd ~/spectrecoin-sh-rpc-ui ; git reset --hard HEAD ; git pull ; cd -'"   >> bash_aliases
-echo "alias wallet-start='sudo service spectrecoind start'"                                     >> bash_aliases
-echo "alias wallet-stop='sudo service spectrecoind stop'"                                       >> bash_aliases
-echo "alias wallet-status='sudo service spectrecoind status'"                                   >> bash_aliases
+echo "alias ui='/home/pi/aliaswallet-sh-rpc-ui/aliaswallet_rpc_ui.sh'"                           > bash_aliases
+echo "alias update-ui='cd /home/pi/aliaswallet-sh-rpc-ui ; git reset --hard HEAD ; git pull ; cd -'"   >> bash_aliases
+echo "alias wallet-start='sudo service aliaswalletd start'"                                     >> bash_aliases
+echo "alias wallet-stop='sudo service aliaswalletd stop'"                                       >> bash_aliases
+echo "alias wallet-status='sudo service aliaswalletd status'"                                   >> bash_aliases
 install -v -o 1000 -g 1000 -m 644 bash_aliases                            "${ROOTFS_DIR}/home/pi/.bash_aliases"
 rm -f bash_aliases
 
