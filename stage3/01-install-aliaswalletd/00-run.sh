@@ -88,8 +88,8 @@ git clone https://github.com/aliascash/aliaswallet-sh-rpc-ui.git
 chown -R 1000:1000 aliaswallet-sh-rpc-ui
 
 # Use config from RPC-UI also on wallet
-cp aliaswallet-sh-rpc-ui/sample_config_daemon/aliaswallet.conf  .aliaswallet/
-chown 1000:1000 .aliaswallet/aliaswallet.conf
+cp aliaswallet-sh-rpc-ui/sample_config_daemon/alias.conf  .aliaswallet/
+chown 1000:1000 .aliaswallet/alias.conf
 EOF
 
 
