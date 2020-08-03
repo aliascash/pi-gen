@@ -31,7 +31,7 @@ fi
 
 # ============================================================================
 # Install Aliaswallet binaries
-wget https://github.com/aliascash/aliaswallet/releases/download/${ALIAS_RELEASE}/Aliaswallet-${ALIAS_RELEASE}-${GIT_COMMIT_SHORT}-RaspberryPi-Buster.tgz -O Aliaswallet-RaspberryPi.tgz
+wget https://github.com/aliascash/alias-wallet/releases/download/${ALIAS_RELEASE}/Aliaswallet-${ALIAS_RELEASE}-${GIT_COMMIT_SHORT}-RaspberryPi-Buster.tgz -O Aliaswallet-RaspberryPi.tgz
 tar xzf Aliaswallet-RaspberryPi.tgz
 
 #install -v -o 1000 -g 1000 -m 744 usr/local/bin/aliaswallet     "${ROOTFS_DIR}/usr/local/bin/"
@@ -84,11 +84,11 @@ rm -rf Aliaswallet-Blockchain*
 on_chroot << EOF
 cd "/home/pi/"
 
-git clone https://github.com/aliascash/aliaswallet-sh-rpc-ui.git
-chown -R 1000:1000 aliaswallet-sh-rpc-ui
+git clone https://github.com/aliascash/alias-sh-rpc-ui.git
+chown -R 1000:1000 alias-sh-rpc-ui
 
 # Use config from RPC-UI also on wallet
-cp aliaswallet-sh-rpc-ui/sample_config_daemon/alias.conf  .aliaswallet/
+cp alias-sh-rpc-ui/sample_config_daemon/alias.conf  .aliaswallet/
 chown 1000:1000 .aliaswallet/alias.conf
 EOF
 
@@ -101,8 +101,8 @@ EOF
 # - 'wallet-start' to start daemon
 # - 'wallet-stop' to stop daemon
 # - 'wallet-status' to show daemon status
-echo "alias ui='/home/pi/aliaswallet-sh-rpc-ui/aliaswallet_rpc_ui.sh'"                           > bash_aliases
-echo "alias update-ui='cd /home/pi/aliaswallet-sh-rpc-ui ; git reset --hard HEAD ; git pull ; cd -'"   >> bash_aliases
+echo "alias ui='/home/pi/alias-sh-rpc-ui/aliaswallet_rpc_ui.sh'"                           > bash_aliases
+echo "alias update-ui='cd /home/pi/alias-sh-rpc-ui ; git reset --hard HEAD ; git pull ; cd -'"   >> bash_aliases
 echo "alias wallet-start='sudo service aliaswalletd start'"                                     >> bash_aliases
 echo "alias wallet-stop='sudo service aliaswalletd stop'"                                       >> bash_aliases
 echo "alias wallet-status='sudo service aliaswalletd status'"                                   >> bash_aliases

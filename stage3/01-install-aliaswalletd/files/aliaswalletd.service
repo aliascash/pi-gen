@@ -5,7 +5,7 @@
 # See "man systemd.service" for details.
 
 [Unit]
-Description=Aliaswallet daemon
+Description=Alias wallet daemon
 After=network.target
 
 [Service]
