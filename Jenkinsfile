@@ -86,7 +86,7 @@ pipeline {
                                     -v ${WORKSPACE}/deploy/:/filesToUpload aliascash/github-uploader:latest \\
                                     github-release upload \\
                                         --user spectrecoin \\
-                                        --repo aliaswallet \\
+                                        --repo alias-wallet \\
                                         --tag ${ALIAS_RELEASE} \\
                                         --name "Aliaswallet-${ALIAS_RELEASE}-${GIT_COMMIT_SHORT}-RaspbianLightBuster.zip" \\
                                         --file /filesToUpload/image_${CURRENT_DATE}-Aliaswallet-lite.zip \\
