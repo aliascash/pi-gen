@@ -85,7 +85,7 @@ pipeline {
                                     -e GITHUB_TOKEN=${GITHUB_TOKEN} \\
                                     -v ${WORKSPACE}/deploy/:/filesToUpload aliascash/github-uploader:latest \\
                                     github-release upload \\
-                                        --user spectrecoin \\
+                                        --user aliascash \\
                                         --repo alias-wallet \\
                                         --tag ${ALIAS_RELEASE} \\
                                         --name "Aliaswallet-${ALIAS_RELEASE}-${GIT_COMMIT_SHORT}-RaspbianLightBuster.zip" \\
