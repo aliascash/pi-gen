@@ -21,8 +21,8 @@ pipeline {
         )
     }
     parameters {
-        string(name: 'ALIAS_RELEASE', defaultValue: '4.1.0', description: 'Which release of Aliaswallet should be used?')
-        string(name: 'GIT_COMMIT_SHORT', defaultValue: '8d027257', description: 'Git short commit, which is part of the name of required archive.')
+        string(name: 'ALIAS_RELEASE', defaultValue: '', description: 'Which release of Aliaswallet should be used? (i. e. 4.3.0 or Build123)')
+        string(name: 'GIT_COMMIT_SHORT', defaultValue: '', description: 'Git short commit, which is part of the name of required archive.')
     }
     stages {
         stage('Notification') {
