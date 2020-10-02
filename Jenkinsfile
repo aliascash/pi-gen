@@ -83,7 +83,8 @@ pipeline {
                                     --rm \\
                                     -t \\
                                     -e GITHUB_TOKEN=${GITHUB_TOKEN} \\
-                                    -v ${WORKSPACE}/deploy/:/filesToUpload aliascash/github-uploader:latest \\
+                                    -v ${WORKSPACE}/deploy/:/filesToUpload \\
+                                    aliascash/github-uploader:latest \\
                                     github-release upload \\
                                         --user aliascash \\
                                         --repo alias-wallet \\
