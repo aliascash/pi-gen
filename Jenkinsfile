@@ -15,6 +15,10 @@ pipeline {
         BRANCH_TO_DEPLOY = 'xyz'
         GITHUB_TOKEN = credentials('cdc81429-53c7-4521-81e9-83a7992bca76')
         DISCORD_WEBHOOK = credentials('991ce248-5da9-4068-9aea-8a6c2c388a19')
+        CURRENT_DATE = sh(
+                script: "printf \$(date +%Y-%m-%d)",
+                returnStdout: true
+        )
     }
     parameters {
         string(name: 'ALIAS_RELEASE', defaultValue: '4.1.0', description: 'Which release of Aliaswallet should be used?')
@@ -73,10 +77,6 @@ pipeline {
         stage('Deploy image') {
             steps {
                 script {
-                    def CURRENT_DATE = sh(
-                            script: "printf \$(date +%Y-%m-%d)",
-                            returnStdout: true
-                    )
                     sh(
                             script: """
                                 docker run \\
