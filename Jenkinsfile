@@ -42,16 +42,17 @@ pipeline {
             }
         }
         stage('Check if required parameters given') {
+            when {
+                allOf {
+                    expression { ALIAS_RELEASE == "" }
+                    expression { GIT_COMMIT_SHORT == "" }
+                }
+            }
             steps {
                 script {
-                    sh(
-                            script: """
-                                if [ -z "${GIT_COMMIT_SHORT}" ] ; then
-                                    echo "Parameter GIT_COMMIT_SHORT is required!"
-                                    exit 1
-                                fi
-                            """
-                    )
+                    // Abort build if required params are empty
+                    currentBuild.result = 'ABORTED'
+                    error('ALIAS_RELEASE and GIT_COMMIT_SHORT must be given!')
                 }
             }
         }
