@@ -31,13 +31,13 @@ fi
 
 # ============================================================================
 # Install Aliaswallet binaries
-wget https://github.com/aliascash/alias-wallet/releases/download/${ALIAS_RELEASE}/Aliaswallet-${ALIAS_RELEASE}-${GIT_COMMIT_SHORT}-RaspberryPi-Buster.tgz -O Aliaswallet-RaspberryPi.tgz
-tar xzf Aliaswallet-RaspberryPi.tgz
+wget https://github.com/aliascash/alias-wallet/releases/download/${ALIAS_RELEASE}/Alias-${ALIAS_RELEASE}-${GIT_COMMIT_SHORT}-RaspberryPi-Buster.tgz -O Alias-RaspberryPi.tgz
+tar xzf Alias-RaspberryPi.tgz
 
 #install -v -o 1000 -g 1000 -m 744 usr/local/bin/aliaswallet     "${ROOTFS_DIR}/usr/local/bin/"
 install -v -o 1000 -g 1000 -m 744 usr/local/bin/aliaswalletd    "${ROOTFS_DIR}/usr/local/bin/"
 
-rm -f /tmp/Aliaswallet-RaspberryPi.tgz
+rm -f /tmp/Alias-RaspberryPi.tgz
 rm -rf usr/
 
 
@@ -53,34 +53,34 @@ EOF
 
 # ============================================================================
 # Bootstrap blockchain
-wget https://download.alias.cash/files/bootstrap/BootstrapChain.zip -O Aliaswallet-Blockchain.zip
+wget https://download.alias.cash/files/bootstrap/BootstrapChain.zip -O Alias-Blockchain.zip
 
-mkdir Aliaswallet-Blockchain
-unzip Aliaswallet-Blockchain.zip -d Aliaswallet-Blockchain/
+mkdir Alias-Blockchain
+unzip Alias-Blockchain.zip -d Alias-Blockchain/
 
 install -d -o 1000 -g 1000 -m 755 "${ROOTFS_DIR}/home/pi/.aliaswallet/"
 install -d -o 1000 -g 1000 -m 755 "${ROOTFS_DIR}/home/pi/.aliaswallet/txleveldb/"
 
-install -v -o 1000 -g 1000 -m 600 Aliaswallet-Blockchain/txleveldb/*0.ldb      "${ROOTFS_DIR}/home/pi/.aliaswallet/txleveldb/"
-install -v -o 1000 -g 1000 -m 600 Aliaswallet-Blockchain/txleveldb/*1.ldb      "${ROOTFS_DIR}/home/pi/.aliaswallet/txleveldb/"
-install -v -o 1000 -g 1000 -m 600 Aliaswallet-Blockchain/txleveldb/*2.ldb      "${ROOTFS_DIR}/home/pi/.aliaswallet/txleveldb/"
-install -v -o 1000 -g 1000 -m 600 Aliaswallet-Blockchain/txleveldb/*3.ldb      "${ROOTFS_DIR}/home/pi/.aliaswallet/txleveldb/"
-install -v -o 1000 -g 1000 -m 600 Aliaswallet-Blockchain/txleveldb/*4.ldb      "${ROOTFS_DIR}/home/pi/.aliaswallet/txleveldb/"
-install -v -o 1000 -g 1000 -m 600 Aliaswallet-Blockchain/txleveldb/*5.ldb      "${ROOTFS_DIR}/home/pi/.aliaswallet/txleveldb/"
-install -v -o 1000 -g 1000 -m 600 Aliaswallet-Blockchain/txleveldb/*6.ldb      "${ROOTFS_DIR}/home/pi/.aliaswallet/txleveldb/"
-install -v -o 1000 -g 1000 -m 600 Aliaswallet-Blockchain/txleveldb/*7.ldb      "${ROOTFS_DIR}/home/pi/.aliaswallet/txleveldb/"
-install -v -o 1000 -g 1000 -m 600 Aliaswallet-Blockchain/txleveldb/*8.ldb      "${ROOTFS_DIR}/home/pi/.aliaswallet/txleveldb/"
-install -v -o 1000 -g 1000 -m 600 Aliaswallet-Blockchain/txleveldb/*9.ldb      "${ROOTFS_DIR}/home/pi/.aliaswallet/txleveldb/"
-install -v -o 1000 -g 1000 -m 600 Aliaswallet-Blockchain/txleveldb/CURRENT     "${ROOTFS_DIR}/home/pi/.aliaswallet/txleveldb/"
-install -v -o 1000 -g 1000 -m 600 Aliaswallet-Blockchain/txleveldb/MANIFEST*   "${ROOTFS_DIR}/home/pi/.aliaswallet/txleveldb/"
-install -v -o 1000 -g 1000 -m 600 Aliaswallet-Blockchain/blk0001.dat           "${ROOTFS_DIR}/home/pi/.aliaswallet/"
+install -v -o 1000 -g 1000 -m 600 Alias-Blockchain/txleveldb/*0.ldb      "${ROOTFS_DIR}/home/pi/.aliaswallet/txleveldb/"
+install -v -o 1000 -g 1000 -m 600 Alias-Blockchain/txleveldb/*1.ldb      "${ROOTFS_DIR}/home/pi/.aliaswallet/txleveldb/"
+install -v -o 1000 -g 1000 -m 600 Alias-Blockchain/txleveldb/*2.ldb      "${ROOTFS_DIR}/home/pi/.aliaswallet/txleveldb/"
+install -v -o 1000 -g 1000 -m 600 Alias-Blockchain/txleveldb/*3.ldb      "${ROOTFS_DIR}/home/pi/.aliaswallet/txleveldb/"
+install -v -o 1000 -g 1000 -m 600 Alias-Blockchain/txleveldb/*4.ldb      "${ROOTFS_DIR}/home/pi/.aliaswallet/txleveldb/"
+install -v -o 1000 -g 1000 -m 600 Alias-Blockchain/txleveldb/*5.ldb      "${ROOTFS_DIR}/home/pi/.aliaswallet/txleveldb/"
+install -v -o 1000 -g 1000 -m 600 Alias-Blockchain/txleveldb/*6.ldb      "${ROOTFS_DIR}/home/pi/.aliaswallet/txleveldb/"
+install -v -o 1000 -g 1000 -m 600 Alias-Blockchain/txleveldb/*7.ldb      "${ROOTFS_DIR}/home/pi/.aliaswallet/txleveldb/"
+install -v -o 1000 -g 1000 -m 600 Alias-Blockchain/txleveldb/*8.ldb      "${ROOTFS_DIR}/home/pi/.aliaswallet/txleveldb/"
+install -v -o 1000 -g 1000 -m 600 Alias-Blockchain/txleveldb/*9.ldb      "${ROOTFS_DIR}/home/pi/.aliaswallet/txleveldb/"
+install -v -o 1000 -g 1000 -m 600 Alias-Blockchain/txleveldb/CURRENT     "${ROOTFS_DIR}/home/pi/.aliaswallet/txleveldb/"
+install -v -o 1000 -g 1000 -m 600 Alias-Blockchain/txleveldb/MANIFEST*   "${ROOTFS_DIR}/home/pi/.aliaswallet/txleveldb/"
+install -v -o 1000 -g 1000 -m 600 Alias-Blockchain/blk0001.dat           "${ROOTFS_DIR}/home/pi/.aliaswallet/"
 
-rm -rf Aliaswallet-Blockchain*
+rm -rf Alias-Blockchain*
 
 
 
 # ============================================================================
-# Install Aliaswallet RPC-UI
+# Install Alias wallet RPC-UI
 on_chroot << EOF
 cd "/home/pi/"
 
@@ -101,8 +101,8 @@ EOF
 # - 'wallet-start' to start daemon
 # - 'wallet-stop' to stop daemon
 # - 'wallet-status' to show daemon status
-echo "alias ui='/home/pi/alias-sh-rpc-ui/aliaswallet_rpc_ui.sh'"                           > bash_aliases
-echo "alias update-ui='cd /home/pi/alias-sh-rpc-ui ; git reset --hard HEAD ; git pull ; cd -'"   >> bash_aliases
+echo "alias ui='/home/pi/alias-sh-rpc-ui/aliaswallet_rpc_ui.sh'"                                 > bash_aliases
+echo "alias update-ui='cd /home/pi/alias-sh-rpc-ui ; git reset --hard HEAD ; git pull ; cd -'"  >> bash_aliases
 echo "alias wallet-start='sudo service aliaswalletd start'"                                     >> bash_aliases
 echo "alias wallet-stop='sudo service aliaswalletd stop'"                                       >> bash_aliases
 echo "alias wallet-status='sudo service aliaswalletd status'"                                   >> bash_aliases
