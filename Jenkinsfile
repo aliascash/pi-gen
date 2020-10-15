@@ -90,7 +90,7 @@ pipeline {
                                         --user aliascash \\
                                         --repo alias-wallet \\
                                         --tag ${ALIAS_RELEASE} \\
-                                        --name "Alias-${ALIAS_RELEASE}-${GIT_COMMIT_SHORT}-RaspbianLight.zip" \\
+                                        --name "Alias-${ALIAS_RELEASE}-${GIT_COMMIT_SHORT}-RaspbianLight64.zip" \\
                                         --file /filesToUpload/image_${CURRENT_DATE}-Aliaswallet-lite.zip \\
                                         --replace
                             """
