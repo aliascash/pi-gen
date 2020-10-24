@@ -12,6 +12,7 @@ maxChainAge=3
 performBootstrapDownload=false
 bootstrapDownloadUrl=https://download.alias.cash/files/bootstrap/BootstrapChain.zip
 bootstrapArchive=${HOME}/BootstrapChain.zip
+bootstrapRunningMarker=${HOME}/bootstrapInstallerRunning
 
 # Check if blk0001.dat exists and if yes, determine if last modification time
 # is longer than ${maxChainAge} days ago
@@ -34,7 +35,9 @@ if ${performBootstrapDownload} ; then
 
     # Shell-UI will check for this file to prevent service start in case
     # the bootstrap chain download and install process is running
-    touch /run/bootstrapInstallerRunning
+    touch "${bootstrapRunningMarker}"
+
+    sudo systemctl stop aliaswalletd || true
 
     if wget -O "${bootstrapArchive}" ${bootstrapDownloadUrl} ; then
         if [ -d "${aliasDatafolder}" ] ; then
@@ -54,5 +57,5 @@ if ${performBootstrapDownload} ; then
     fi
 
     # Shell-UI can be used now
-    rm -f /run/bootstrapInstallerRunning
+    rm -f "${bootstrapRunningMarker}"
 fi
