@@ -9,10 +9,11 @@ Description=Alias wallet bootstrap installer
 After=network.target
 
 [Service]
-ExecStart=/usr/local/bin/aliasbootstrapinstaller.sh
+ExecStart=/usr/bin/nohup /usr/local/bin/aliasbootstrapinstaller.sh
 User=pi
-Type=forking
-Restart=on-failure
+Type=oneshot
+RemainAfterExit=yes
+Restart=no
 
 # Hardening measures
 ####################
