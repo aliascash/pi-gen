@@ -56,7 +56,3 @@ if ${performBootstrapDownload} ; then
     # Shell-UI can be used now
     rm -f /run/bootstrapInstallerRunning
 fi
-
-sudo systemctl disable aliasbootstrapinstaller
-sudo systemctl enable aliaswalletd
-sudo systemctl start aliaswalletd
