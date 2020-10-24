@@ -53,29 +53,29 @@ EOF
 
 # ============================================================================
 # Bootstrap blockchain
-wget https://download.alias.cash/files/bootstrap/BootstrapChain.zip -O Alias-Blockchain.zip
-
-mkdir Alias-Blockchain
-unzip Alias-Blockchain.zip -d Alias-Blockchain/
-
-install -d -o 1000 -g 1000 -m 755 "${ROOTFS_DIR}/home/pi/.aliaswallet/"
-install -d -o 1000 -g 1000 -m 755 "${ROOTFS_DIR}/home/pi/.aliaswallet/txleveldb/"
-
-install -v -o 1000 -g 1000 -m 600 Alias-Blockchain/txleveldb/*0.ldb      "${ROOTFS_DIR}/home/pi/.aliaswallet/txleveldb/"
-install -v -o 1000 -g 1000 -m 600 Alias-Blockchain/txleveldb/*1.ldb      "${ROOTFS_DIR}/home/pi/.aliaswallet/txleveldb/"
-install -v -o 1000 -g 1000 -m 600 Alias-Blockchain/txleveldb/*2.ldb      "${ROOTFS_DIR}/home/pi/.aliaswallet/txleveldb/"
-install -v -o 1000 -g 1000 -m 600 Alias-Blockchain/txleveldb/*3.ldb      "${ROOTFS_DIR}/home/pi/.aliaswallet/txleveldb/"
-install -v -o 1000 -g 1000 -m 600 Alias-Blockchain/txleveldb/*4.ldb      "${ROOTFS_DIR}/home/pi/.aliaswallet/txleveldb/"
-install -v -o 1000 -g 1000 -m 600 Alias-Blockchain/txleveldb/*5.ldb      "${ROOTFS_DIR}/home/pi/.aliaswallet/txleveldb/"
-install -v -o 1000 -g 1000 -m 600 Alias-Blockchain/txleveldb/*6.ldb      "${ROOTFS_DIR}/home/pi/.aliaswallet/txleveldb/"
-install -v -o 1000 -g 1000 -m 600 Alias-Blockchain/txleveldb/*7.ldb      "${ROOTFS_DIR}/home/pi/.aliaswallet/txleveldb/"
-install -v -o 1000 -g 1000 -m 600 Alias-Blockchain/txleveldb/*8.ldb      "${ROOTFS_DIR}/home/pi/.aliaswallet/txleveldb/"
-install -v -o 1000 -g 1000 -m 600 Alias-Blockchain/txleveldb/*9.ldb      "${ROOTFS_DIR}/home/pi/.aliaswallet/txleveldb/"
-install -v -o 1000 -g 1000 -m 600 Alias-Blockchain/txleveldb/CURRENT     "${ROOTFS_DIR}/home/pi/.aliaswallet/txleveldb/"
-install -v -o 1000 -g 1000 -m 600 Alias-Blockchain/txleveldb/MANIFEST*   "${ROOTFS_DIR}/home/pi/.aliaswallet/txleveldb/"
-install -v -o 1000 -g 1000 -m 600 Alias-Blockchain/blk0001.dat           "${ROOTFS_DIR}/home/pi/.aliaswallet/"
-
-rm -rf Alias-Blockchain*
+#wget https://download.alias.cash/files/bootstrap/BootstrapChain.zip -O Alias-Blockchain.zip
+#
+#mkdir Alias-Blockchain
+#unzip Alias-Blockchain.zip -d Alias-Blockchain/
+#
+#install -d -o 1000 -g 1000 -m 755 "${ROOTFS_DIR}/home/pi/.aliaswallet/"
+#install -d -o 1000 -g 1000 -m 755 "${ROOTFS_DIR}/home/pi/.aliaswallet/txleveldb/"
+#
+#install -v -o 1000 -g 1000 -m 600 Alias-Blockchain/txleveldb/*0.ldb      "${ROOTFS_DIR}/home/pi/.aliaswallet/txleveldb/"
+#install -v -o 1000 -g 1000 -m 600 Alias-Blockchain/txleveldb/*1.ldb      "${ROOTFS_DIR}/home/pi/.aliaswallet/txleveldb/"
+#install -v -o 1000 -g 1000 -m 600 Alias-Blockchain/txleveldb/*2.ldb      "${ROOTFS_DIR}/home/pi/.aliaswallet/txleveldb/"
+#install -v -o 1000 -g 1000 -m 600 Alias-Blockchain/txleveldb/*3.ldb      "${ROOTFS_DIR}/home/pi/.aliaswallet/txleveldb/"
+#install -v -o 1000 -g 1000 -m 600 Alias-Blockchain/txleveldb/*4.ldb      "${ROOTFS_DIR}/home/pi/.aliaswallet/txleveldb/"
+#install -v -o 1000 -g 1000 -m 600 Alias-Blockchain/txleveldb/*5.ldb      "${ROOTFS_DIR}/home/pi/.aliaswallet/txleveldb/"
+#install -v -o 1000 -g 1000 -m 600 Alias-Blockchain/txleveldb/*6.ldb      "${ROOTFS_DIR}/home/pi/.aliaswallet/txleveldb/"
+#install -v -o 1000 -g 1000 -m 600 Alias-Blockchain/txleveldb/*7.ldb      "${ROOTFS_DIR}/home/pi/.aliaswallet/txleveldb/"
+#install -v -o 1000 -g 1000 -m 600 Alias-Blockchain/txleveldb/*8.ldb      "${ROOTFS_DIR}/home/pi/.aliaswallet/txleveldb/"
+#install -v -o 1000 -g 1000 -m 600 Alias-Blockchain/txleveldb/*9.ldb      "${ROOTFS_DIR}/home/pi/.aliaswallet/txleveldb/"
+#install -v -o 1000 -g 1000 -m 600 Alias-Blockchain/txleveldb/CURRENT     "${ROOTFS_DIR}/home/pi/.aliaswallet/txleveldb/"
+#install -v -o 1000 -g 1000 -m 600 Alias-Blockchain/txleveldb/MANIFEST*   "${ROOTFS_DIR}/home/pi/.aliaswallet/txleveldb/"
+#install -v -o 1000 -g 1000 -m 600 Alias-Blockchain/blk0001.dat           "${ROOTFS_DIR}/home/pi/.aliaswallet/"
+#
+#rm -rf Alias-Blockchain*
 
 
 
