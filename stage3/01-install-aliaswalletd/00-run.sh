@@ -31,7 +31,7 @@ fi
 
 # ============================================================================
 # Install Aliaswallet binaries
-wget https://github.com/aliascash/alias-wallet/releases/download/${ALIAS_RELEASE}/Alias-${ALIAS_RELEASE}-${GIT_COMMIT_SHORT}-RaspberryPi-Buster.tgz -O Alias-RaspberryPi.tgz
+wget https://github.com/aliascash/alias-wallet/releases/download/${ALIAS_RELEASE}/Alias-${ALIAS_RELEASE}-${GIT_COMMIT_SHORT}-RaspberryPi-Buster-aarch64.tgz -O Alias-RaspberryPi.tgz
 tar xzf Alias-RaspberryPi.tgz
 
 #install -v -o 1000 -g 1000 -m 744 usr/local/bin/aliaswallet     "${ROOTFS_DIR}/usr/local/bin/"
