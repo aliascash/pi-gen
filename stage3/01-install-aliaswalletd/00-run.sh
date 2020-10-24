@@ -57,7 +57,7 @@ install -m 644 files/aliaswalletd.service	"${ROOTFS_DIR}/lib/systemd/system/"
 # ============================================================================
 # Install Aliaswallet bootstrap installer service
 install -m 644 files/aliasbootstrapinstaller.service	"${ROOTFS_DIR}/lib/systemd/system/"
-install -m 644 files/aliasbootstrapinstaller.sh	        "${ROOTFS_DIR}/usr/local/bin/"
+install -o 1000 -g 1000 -m 754 files/aliasbootstrapinstaller.sh	        "${ROOTFS_DIR}/usr/local/bin/"
 on_chroot << EOF
 systemctl enable aliasbootstrapinstaller
 EOF
