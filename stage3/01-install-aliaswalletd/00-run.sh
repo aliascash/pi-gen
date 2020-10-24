@@ -71,7 +71,7 @@ EOF
 #mkdir Alias-Blockchain
 #unzip Alias-Blockchain.zip -d Alias-Blockchain/
 #
-#install -d -o 1000 -g 1000 -m 755 "${ROOTFS_DIR}/home/pi/.aliaswallet/"
+install -d -o 1000 -g 1000 -m 755 "${ROOTFS_DIR}/home/pi/.aliaswallet/"
 #install -d -o 1000 -g 1000 -m 755 "${ROOTFS_DIR}/home/pi/.aliaswallet/txleveldb/"
 #
 #install -v -o 1000 -g 1000 -m 600 Alias-Blockchain/txleveldb/*0.ldb      "${ROOTFS_DIR}/home/pi/.aliaswallet/txleveldb/"
