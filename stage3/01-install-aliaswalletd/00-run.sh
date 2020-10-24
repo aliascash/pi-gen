@@ -45,8 +45,21 @@ rm -rf usr/
 # ============================================================================
 # Install Aliaswallet service
 install -m 644 files/aliaswalletd.service	"${ROOTFS_DIR}/lib/systemd/system/"
+
+# Enabling of aliaswalletd service will be done by bootstrap installer service
+# after download and installation of bootstrap chain
+#on_chroot << EOF
+#systemctl enable aliaswalletd
+#EOF
+
+
+
+# ============================================================================
+# Install Aliaswallet bootstrap installer service
+install -m 644 files/aliasbootstrapinstaller.service	"${ROOTFS_DIR}/lib/systemd/system/"
+install -m 644 files/aliasbootstrapinstaller.sh	        "${ROOTFS_DIR}/usr/local/bin/"
 on_chroot << EOF
-systemctl enable aliaswalletd
+systemctl enable aliasbootstrapinstaller
 EOF
 
 
