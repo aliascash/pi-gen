@@ -13,7 +13,7 @@ pipeline {
     environment {
         // In case another branch beside master or develop should be deployed, enter it here
         BRANCH_TO_DEPLOY = 'xyz'
-        GITHUB_TOKEN = credentials('cdc81429-53c7-4521-81e9-83a7992bca76')
+        GITHUB_TOKEN = credentials('github-app')
         DISCORD_WEBHOOK = credentials('DISCORD_WEBHOOK')
         CURRENT_DATE = sh(
                 script: "printf \$(date +%Y-%m-%d)",
