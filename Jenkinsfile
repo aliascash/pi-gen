@@ -13,7 +13,7 @@ pipeline {
     environment {
         // In case another branch beside master or develop should be deployed, enter it here
         BRANCH_TO_DEPLOY = 'xyz'
-        GITHUB_TOKEN = credentials('github-app')
+        GITHUB_CI_TOKEN = credentials('GITHUB_CI_TOKEN')
         DISCORD_WEBHOOK = credentials('DISCORD_WEBHOOK')
         CURRENT_DATE = sh(
                 script: "printf \$(date +%Y-%m-%d)",
@@ -83,10 +83,10 @@ pipeline {
                                 docker run \\
                                     --rm \\
                                     -t \\
-                                    -e GITHUB_TOKEN=${GITHUB_TOKEN} \\
                                     -v ${WORKSPACE}/deploy/:/filesToUpload \\
                                     aliascash/github-uploader:latest \\
                                     github-release upload \\
+                                        --security-token "${GITHUB_CI_TOKEN}" \\
                                         --user aliascash \\
                                         --repo alias-wallet \\
                                         --tag ${ALIAS_RELEASE} \\
