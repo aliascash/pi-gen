@@ -61,7 +61,7 @@ pipeline {
                 script {
                     sh(
                             script: """
-                                sudo modprobe loop max_loop=256
+                                #sudo modprobe loop max_loop=256
                                 rm -rf ${WORKSPACE}/work
                                 echo IMG_NAME=Aliaswallet > config
                                 echo ALIAS_RELEASE=${ALIAS_RELEASE} >> config
