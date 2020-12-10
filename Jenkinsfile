@@ -69,7 +69,7 @@ pipeline {
                                 echo ENABLE_SSH=1 >> config
                                 cat config
                                 touch ./stage4/SKIP ./stage4/SKIP_IMAGES ./stage5/SKIP ./stage5/SKIP_IMAGES
-                                ./build-docker.sh
+                                CONTINUE=1 ./build-docker.sh
                             """
                     )
                 }
