@@ -9,8 +9,8 @@ Description=Alias wallet bootstrap installer
 After=network.target
 
 [Service]
-ExecStart=/usr/bin/nohup /usr/local/bin/aliasbootstrapinstaller.sh
-User=pi
+ExecStart=+/usr/bin/nohup /usr/local/bin/aliasbootstrapinstaller.sh
+User=root
 Type=oneshot
 RemainAfterExit=yes
 Restart=no
