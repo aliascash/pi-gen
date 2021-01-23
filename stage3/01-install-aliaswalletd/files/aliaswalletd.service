@@ -9,7 +9,7 @@ Description=Alias wallet daemon
 After=network.target
 
 [Service]
-ExecStart=/usr/local/bin/aliaswalletd -daemon -pid=/run/aliaswalletd/aliaswalletd.pid -debug
+ExecStart=/usr/local/bin/aliaswalletd -daemon -pid=/run/aliaswalletd/aliaswalletd.pid
 # Creates /run/aliaswalletd owned by pi
 RuntimeDirectory=aliaswalletd
 User=pi
